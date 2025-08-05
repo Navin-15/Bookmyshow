@@ -1,0 +1,19 @@
+/* MovieManager.css */
+
+/* Example: Add spacing between cards and responsive overflow */
+.movie-card img {
+  object-fit: cover;
+  height: 250px;
+}
+
+.movie-card .card-title {
+  font-size: 1.25rem;
+}
+
+.movie-card .card-text {
+  flex-grow: 1;
+}
+
+.movie-card-footer {
+  font-size: 0.85rem;
+}

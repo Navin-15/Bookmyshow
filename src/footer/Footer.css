@@ -1,0 +1,17 @@
+.footerdiv{
+    background-color: rgb(100, 98, 98);
+}
+.footerimage{
+    height: 90px;
+    width: 50% ;
+}
+
+.footertext{
+    font-size: 11px;
+    margin-top: 10px;
+    color: rgb(221, 216, 216);
+}
+.lo-go{
+    height: 40px;
+    color: white;
+}
