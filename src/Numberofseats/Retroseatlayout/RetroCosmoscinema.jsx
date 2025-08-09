@@ -35,38 +35,96 @@ const Seatlayout = () => {
     const [movieName, setMovieName] = useState(""); // State to store movie name
     const [screen, setSelectedScreen] = useState(""); // State to store movie name
  
+//original code
 
-useEffect(() => {
-        // Retrieve data from location.state
-        if (location.state) {
-            setTheaterName(location.state.theater || "");
-            setSelectedTime(location.state.time || "");
-            setMovieName(location.state.movieName || "");
-            setSelectedScreen(location.state.screen || "");
-            if (location.state.selectedSeats) {
-                setSelectedSeats(location.state.selectedSeats);
-            }
+// useEffect(() => {
+//         // Retrieve data from location.state
+//         if (location.state) {
+//             setTheaterName(location.state.theater || "");
+//             setSelectedTime(location.state.time || "");
+//             setMovieName(location.state.movieName || "");
+//             setSelectedScreen(location.state.screen || "");
+//             if (location.state.selectedSeats) {
+//                 setSelectedSeats(location.state.selectedSeats);
+//             }
+//         }
+
+//         const fetchBookedSeats = async () => {
+//     try {
+//       const params = {
+//         theater: theaterName,
+//         moviename: movieName,
+//         date: selectedDate.toLocaleDateString(),
+//         time: selectedTime,
+//         screen: screen
+//       };
+//       const response = await axios.get('http://localhost:5000/api/bookings', { params });
+//       // Server filters experied bookings
+//       const allBooked = response.data.flatMap(b => b.seats);
+//       setBookedSeats(allBooked);
+//     } catch(err) { console.error(err); }
+//   };
+
+//   if (theaterName && movieName && selectedTime && screen) {
+//     fetchBookedSeats();
+//   }
+// }, [theaterName, movieName, selectedDate, selectedTime, screen]);
+
+
+//working code
+
+    useEffect(() => {
+    // Retrieve data from location.state
+    if (location.state) {
+        setTheaterName(location.state.theater || "");
+        setSelectedTime(location.state.time || "");
+        setMovieName(location.state.movieName || "");
+        setSelectedScreen(location.state.screen || "");
+        if (location.state.selectedSeats) {
+            setSelectedSeats(location.state.selectedSeats);
         }
+    }
 
-        const fetchBookedSeats = async () => {
-    try {
-      const params = {
-        theater: theaterName,
-        moviename: movieName,
-        date: selectedDate.toLocaleDateString(),
-        time: selectedTime,
-        screen: screen
-      };
-      const response = await axios.get('http://localhost:5000/api/bookings', { params });
-      const allBooked = response.data.flatMap(b => b.seats);
-      setBookedSeats(allBooked);
-    } catch(err) { console.error(err); }
-  };
+    const fetchBookedSeats = async () => {
+        try {
+            // Combine selected date and time into a full Date object
+            const showDateTimeString = `${selectedDate.toLocaleDateString()} ${selectedTime}`;
+            const showDateTime = new Date(showDateTimeString);
 
-  if (theaterName && movieName && selectedTime && screen) {
-    fetchBookedSeats();
-  }
+            const currentDateTime = new Date();
+
+            // Only fetch booked seats if showtime is in the future
+            if (showDateTime > currentDateTime) {
+                const params = {
+                    theater: theaterName,
+                    moviename: movieName,
+                    date: selectedDate.toLocaleDateString(),
+                    time: selectedTime,
+                    screen: screen
+                };
+
+                const response = await axios.get('http://localhost:5000/api/bookings', { params });
+
+                const allBooked = response.data.flatMap(b => b.seats);
+                setBookedSeats(allBooked);
+            } else {
+                // If showtime has passed, clear bookedSeats
+                setBookedSeats([]);
+            }
+        } catch (err) {
+            console.error(err);
+        }
+    };
+
+    if (theaterName && movieName && selectedTime && screen) {
+        fetchBookedSeats();
+    }
 }, [theaterName, movieName, selectedDate, selectedTime, screen]);
+
+
+
+
+
 
     const handlePreviousPage = () => {
         window.scrollTo(0, 0);
