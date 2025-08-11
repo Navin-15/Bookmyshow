@@ -90,18 +90,11 @@ import ThodarumKarpagamcinema from './Numberofseats/Thodarumseatlayout/ThodarumK
 import ThodarumMurugancinema from './Numberofseats/Thodarumseatlayout/ThodarumMurugancinema';
 import ThodarumKalpanacinema from './Numberofseats/Thodarumseatlayout/ThodarumKalpanacinema';
 
-
-
-
-
-
-
 import Footer from './footer/Footer';
-import SeatSelection from './Seatselection.jsx';
-import Summary from './Summary.jsx';
+
 
 import BookingSummaryPage from './Bookingsummary/BookingSummaryPage.jsx';
-// import Bookingsummary from './Bookingsummary/Bookingsummary.jsx';
+
 
 //--------Adminpanel 
 // import Adminheader from './Adminpanel/AdminHead/Adminheader.jsx'
@@ -140,7 +133,7 @@ function Home() {
       <Categories/>
       <Slider/>
       <RecomendedMovies/>   
-      {/* <Comedyshow/> */}
+      {/* <Comedyshow/>  */}
       <Footer/> 
   </>
   );
@@ -165,8 +158,6 @@ function App (){
                 {/* <Route path="/theatermanage" element={<TheaterManager />} />
                 <Route path="/moviemanage" element={<Moviemanage />} />  */}
 
-              
-        
           {/*Adminlogin*/}
 
 
@@ -254,20 +245,9 @@ function App (){
             <Route path='thodarum/buytickets/Murugancinemaseatlayout' element={<ThodarumMurugancinema/>} />
             <Route path='thodarum/buytickets/Kalpanacinemaseatlayout' element={<ThodarumKalpanacinema/>} />
 
-            {/* Booking Summary */}
-
             <Route path="/booking-summary" element={<BookingSummaryPage />} />
 
-            {/* Booking Summary */}
-
-            {/* Booking Summary Modify Section  */}
-            
-            {/* Hit */}
-            <Route path="/seatlayout" element={<HitCosmoscinema />} />
-
-            {/* Hit */}
-
-            {/* Booking Summary Modify Section  */}
+            {/* <Route path="/seatlayout" element={<HitCosmoscinema />} /> */}
             
             {/* events */}
 

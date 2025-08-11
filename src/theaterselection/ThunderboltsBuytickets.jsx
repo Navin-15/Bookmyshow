@@ -205,7 +205,7 @@ const isShowtimeInFuture = (showTimeString) => {
                                         "Cosmo Cinemas PEELAMEDU AC 4K RGB Lase:Coimbatore",
                                         show.time,
                                         show.screen,
-                                        '/retro/buytickets/cosmoscinemaseatlayout'
+                                        '/thunderbolts/buytickets/cosmoscinemaseatlayout'
                                     )
                                 }
                                 className="time-holding-div"
@@ -348,7 +348,7 @@ const isShowtimeInFuture = (showTimeString) => {
                   "Karpagam Theatres 4K Dolby Atmos: Coimbatore",
                   show.time,
                   show.screen,
-                  "/retro/buytickets/karpagamcinemaseatlayout"
+                  "/thunderbolts/buytickets/karpagamcinemaseatlayout"
                 )
               }
               className="time-holding-div"
@@ -488,7 +488,7 @@ const isShowtimeInFuture = (showTimeString) => {
                   "Murugan Cinemas A/C 4K Atmos: Thudiyalur",
                   show.time,
                   show.screen,
-                  "/retro/buytickets/murugancinemaseatlayout"
+                  "/thunderbolts/buytickets/murugancinemaseatlayout"
                 )
               }
               className="time-holding-div"
@@ -628,7 +628,7 @@ const isShowtimeInFuture = (showTimeString) => {
                   "Sri Sakthi Kalpana Cinemas: Kavundampalayam",
                   show.time,
                   show.screen,
-                  "/retro/buytickets/kalpanacinemaseatlayout"
+                  "/thunderbolts/buytickets/kalpanacinemaseatlayout"
                 )
               }
               className="time-holding-div"

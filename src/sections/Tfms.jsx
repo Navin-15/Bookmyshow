@@ -84,7 +84,7 @@ function Tfms() {
             <h5 className="mb-0">9.5/10</h5>
             <small>(48.1k votes)</small>
             <MdChevronRight />
-            <button className="btn btn-outline-light btn-sm ms-2">Rate Now</button>
+            {/* <button className="btn btn-outline-light btn-sm ms-2">Rate Now</button> */}
           </div>
           <div className="mt-3">
             <span className="badge bg-secondary me-1">2D</span>

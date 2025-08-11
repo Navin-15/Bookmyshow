@@ -89,7 +89,7 @@ const Tms = () => {
             <h5 className="mb-0">8.2/10</h5>
             <small>(1k Votes)</small>
             <MdChevronRight />
-            <button className="btn btn-outline-light btn-sm ms-2">Rate Now</button>
+            {/* <button className="btn btn-outline-light btn-sm ms-2">Rate Now</button> */}
           </div>
           <div className="mb-2">
             <span className="badge bg-secondary me-2">2D</span>

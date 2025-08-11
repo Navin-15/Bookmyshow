@@ -141,10 +141,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function Navbar() {
   const [city, setCity] = useState(localStorage.getItem('selectedCity') || 'Location');
   const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem('isLoggedIn') === 'true');
+  const [userName, setUserName] = useState(localStorage.getItem('userName') || 'Guest');
   const navigate = useNavigate();
 
   useEffect(() => {
-    const onStorage = () => setIsLoggedIn(localStorage.getItem('isLoggedIn') === 'true');
+    const onStorage = () => {
+      setIsLoggedIn(localStorage.getItem('isLoggedIn') === 'true');
+      setUserName(localStorage.getItem('userName') || 'Guest'); // 👈 update on storage change
+    };
+
     window.addEventListener('storage', onStorage);
     return () => window.removeEventListener('storage', onStorage);
   }, []);
@@ -159,6 +164,8 @@ function Navbar() {
   const handleLogin = () => navigate('/login');
   const handleLogout = () => {
     localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('userName'); // 👈 clear userName on logout
+    setUserName('Guest');
     setIsLoggedIn(false);
     navigate('/');
   };
@@ -208,7 +215,7 @@ function Navbar() {
             <li className="nav-item w-50 me-3">
               {isLoggedIn ? (
                 <>
-                  <span className="nav-link">Hi, Guest</span>
+                  <span className="nav-link">Hi,{userName}</span>
                   <button className="btn btn-outline-danger btn-sm ms-2" onClick={handleLogout}>
                     Logout
                   </button>

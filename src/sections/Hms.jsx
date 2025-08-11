@@ -75,7 +75,7 @@ function Hms() {
             <h5 className="mb-0">8.8/10</h5>
             <small>(74.7k votes)</small>
             <MdChevronRight />
-            <button className="btn btn-outline-light btn-sm ms-2">Rate Now</button>
+            {/* <button className="btn btn-outline-light btn-sm ms-2">Rate Now</button> */}
           </div>
 
           <div className="mt-3">

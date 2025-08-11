@@ -84,7 +84,7 @@ const Thunderbolts = () => {
             <h5 className="mb-0">8.1/10</h5>
             <small>(27.7k votes)</small>
             <MdChevronRight />
-            <button className="btn btn-outline-light btn-sm ms-2">Rate Now</button>
+            {/* <button className="btn btn-outline-light btn-sm ms-2">Rate Now</button> */}
           </div>
           <div className="mb-2">
             {["2D", "IMAX 3D", "MX4D 3D", "IMAX 2D", "4DX 3D", "3D", "3D SCREEN X", "ICE", "ICE 3D"].map(format => (

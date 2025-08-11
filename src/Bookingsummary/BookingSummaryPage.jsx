@@ -1,5 +1,3 @@
-
-
 // new code
 
 // BookingSummaryPage.jsx
@@ -10,7 +8,7 @@ import axios from 'axios';
 
 function BookingSummaryPage() {
     const location = useLocation();
-    
+    const navigate = useNavigate(); 
     const { movieName, theater, selectedSeats, totalPrice, date, time, screen } = location.state || {};
 
     const handleConfirmBooking = async () => {
@@ -29,10 +27,9 @@ function BookingSummaryPage() {
   try {
     const response = await axios.post('http://localhost:5000/api/bookings', bookingData);
     if (response.status === 200 || response.status === 201) {
-      alert("✅ Booking confirmed!");
-      console.log('Bookingdata:', bookingData);
-
-     
+        alert("✅ Booking confirmed!");
+        console.log('Bookingdata:', bookingData);
+        navigate('/'); // 👈 Redirect to home
     }
   } catch (error) {
     console.error("❌ Error saving booking:", error);
