@@ -1,0 +1,94 @@
+
+
+.user-form-container {
+  background-color: white;
+  padding: 30px;
+  border-radius: 12px;
+  position: absolute;
+  left: 17.8rem;
+  margin-top: 140px;
+  max-width: 960px;
+  /* margin-left: auto;
+  margin-right: auto; */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.text {
+  width: 74%;
+  border-radius: 8px;
+  position: absolute;
+  right: 45px;
+  top: 70px;
+  padding: 5px;
+  display: flex;
+  background: #fff;
+  padding-left: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-title {
+  color: red;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+
+.form-actions button {
+    /* background-color: transparent !important; */
+    border-radius: 30px;
+    border: 2px solid #dc3545;
+    color: black;
+}
+
+input.form-control {
+    border-radius: 3px !important;
+}
+
+.cancel,
+.submit-update {
+  padding: 10px 25px !important;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+/* new component code css */
+
+.newtheaterformparent {
+    background: #fff;
+    margin-top: 3rem !important;
+    width: 60.2rem;
+    position: relative;
+    top: 75px;
+    left: 7.8rem;
+    padding: 30px;
+    border-radius: 8px;
+}
+.for {
+  width: 53vw; 
+}
+
+.create-btn {
+  padding: 10px 25px !important;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 20px;
+  border: 1.8px solid red !important;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  color: black;
+  background: transparent !important;
+}
+
+form {
+  padding: 0px;
+}

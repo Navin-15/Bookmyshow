@@ -1,0 +1,10 @@
+.moviecontainer {
+  background-color: white;
+  position: absolute;
+  top: 9rem;
+  left: 18rem;
+  width: 60rem;
+  border-radius: 8px;
+  flex-wrap: wrap;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}

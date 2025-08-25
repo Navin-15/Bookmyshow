@@ -1,0 +1,53 @@
+/* MovieManager.css */
+
+/* Example: Add spacing between cards and responsive overflow */
+.movie-card img {
+  object-fit: cover;
+  height: 250px;
+}
+
+.movie-card .card-title {
+  font-size: 1.25rem;
+}
+
+.movie-card .card-text {
+  flex-grow: 1;
+}
+
+.movie-card-footer {
+  font-size: 0.85rem;
+}
+.createupdatediv {
+  width: 13rem;
+  position: absolute;
+  bottom: 0px;
+  padding: 0px 0px;
+  right: 0px;
+}
+.form-control {
+  border: 1px solid black;
+  border-radius: 2px;
+}
+input.form-control {
+  border-radius: 3px;
+}
+.createupdatediv button {
+    /* background-color: transparent !important; */
+    border-radius: 30px;
+    padding: 10px 20px;
+    border: 2px solid #dc3545;
+    color: black;
+}
+.createupdatediv button:nth-child(1) {
+    background-color: transparent !important;
+    border: 2px solid #dc3545;
+    color: black;
+}
+.createupdatediv button:nth-child(2):hover {
+    background-color: #dc3545;
+    border: 2px solid #dc3545;
+    color: white;
+}
+
+
+  

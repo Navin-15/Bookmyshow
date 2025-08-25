@@ -1,0 +1,137 @@
+.theaterdetailssublist{
+  padding: 0px 0px;
+  width: 150px;
+  background-color: red;
+}
+
+.submenu {
+  display: none;
+  list-style: none;
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+.menu-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-group:hover .submenu {
+  display: block;
+  border: 1px solid white;
+}
+
+#sidebar {
+  width: 250px;
+  background-color: #263043;
+  color: white;
+  height: 100vh;
+  padding-top: 20px;
+  position: fixed;
+  overflow-y: auto;
+}
+
+.sidebar-responsive {
+  display: block;
+}
+
+.sidebar-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  margin-bottom: 20px;
+}
+
+.sidebar-brand {
+  font-size: 1.3rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon {
+  margin-right: 10px;
+  font-size: 18px;
+}
+.menu-group {
+  border: transparent;
+  margin-left: 10px;
+}
+
+.icon_header {
+  font-size: 20px;
+}
+
+.close_icon {
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.sidebar-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.sidebar-list-item {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+.sidebar-list-item:hover {
+  border: 1px solid white;
+}
+
+.sidebar-list-item p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-sub-item {
+  padding: 5px 0 5px 20px;
+  font-size: 0.95rem;
+  color: white;
+  cursor: pointer;
+}
+
+.sidebar-sub-item:hover {
+  background-color: #c2185b;
+}
+
+
+/*  */
+
+.Adminslider{
+  width: 250px;
+  height: 100vh;
+  align-items: center;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  /* background-color: #fff; */
+  background-color:#e70c43;
+  border-right:1px solid #eee ;
+
+}
+.Adminlogodiv{
+  display: flex;
+  padding-top:14px ;
+  margin-bottom:30px ;
+  padding-bottom: 20px;
+  background-color: #eee;
+  border-bottom:1px solid #eee ;
+  box-shadow: 0 6px 7px -3px rgba(0, 0, 0, 0.35);
+}
+.chevronright,.chevrondown{
+  font-size: 8px;
+}
+.adminUl{
+  list-style: none;
+  padding: 0;
+}
+.adminlogo{
+    width: 30%;
+    margin-left: 36%;
+   
+}

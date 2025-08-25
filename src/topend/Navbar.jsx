@@ -199,7 +199,7 @@ function Navbar() {
               style={{ cursor: 'pointer' }}
             />
             <button
-              className="btn btn-outline-secondary "
+              className=" bg-transparent btn btn-outline-secondary "
               type="button"
               onClick={handleSearch}>
               <img src={searchIcon} alt="Search" height="20" />

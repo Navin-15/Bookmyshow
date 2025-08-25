@@ -1,0 +1,45 @@
+.header{
+    position: fixed;
+    top: 0px;
+    left: 19.5%;
+    width: 80.5%;
+    height: 55px;
+    display: flex;
+    justify-content: end;
+}
+
+/* .admin-container {
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  position: sticky;
+  left: 0px;
+} */
+
+/* .admin-content {
+  position: sticky;
+  top: 0px;
+  left: 16.3%;
+  width: 50%;
+  overflow-x: hidden;
+} */
+
+.main-container {
+  margin-top: 56px;
+  margin-left: 250px;
+  padding: 10px;
+
+}
+
+.card-footer {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.card h5 {
+  margin: 0;
+}
+
+.card svg {
+  color: white;
+}
+

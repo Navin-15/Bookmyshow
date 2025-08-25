@@ -228,7 +228,7 @@ useEffect(() => {
 
             {/* Pay Button */}
             <div className="d-flex justify-content-center paybutton">
-                <button onClick={handlepay} className="btn btn-danger w-25 my-3" disabled={selectedSeats.length === 0}>
+                <button onClick={handlepay} className=" pay btn btn-danger w-25 my-3" disabled={selectedSeats.length === 0}>
                     Pay ₹{totalPrice}
                 </button>
             </div>

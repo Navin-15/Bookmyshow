@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import './App.css';
 import './cat/Categories.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Navigate, BrowserRouter, Routes, Route } from 'react-router-dom'
 import './topend/Navbar.css';
 import Navbar from './topend/Navbar';
 import Innerinput from './insidenav/Innerinput';
@@ -97,16 +97,24 @@ import BookingSummaryPage from './Bookingsummary/BookingSummaryPage.jsx';
 
 
 //--------Adminpanel 
-// import Adminheader from './Adminpanel/AdminHead/Adminheader.jsx'
-// import Adminsidebar from './Adminpanel/AdminSide/Adminsidebar.jsx'
-// import Adminhome from './Adminpanel/AdminHome/Adminhome.jsx'
+import { AuthProvider } from '../src/Adminpanel/AuthContext.jsx';
+import { UserProvider } from '../src/Adminpanel/UserContext.jsx';
+
+import Adminhome from './Adminpanel/AdminHome/Adminhome.jsx'
 // import Register from './Adminpanel/Register/Register.jsx'
-// import AdminCategories from './Adminpanel/Theaterdetails/AdminCategories.jsx'
-// import TheaterManager from './Adminpanel/Theaterdetails/Theatermanage.jsx';
-// import Moviemanage from './Adminpanel/moviemanager/Moviemanage.jsx';
-
-
-
+import Newtheater from './Adminpanel/Theaterdetails/Newtheater.jsx';
+import Managemovie from './Adminpanel/moviemanager/Managemovie.jsx';
+import Newmovie from './Adminpanel/moviemanager/Newmovie.jsx';
+import AdminLogin from './Adminpanel/AdminLogin/AdminLogin.jsx';
+import Newuser from './Adminpanel/User/Newuser.jsx';
+import Manageuser from './Adminpanel/User/Manageuser.jsx';
+import ManageTheater from './Adminpanel/Theaterdetails/Managetheater.jsx';
+import { TheaterProvider } from './Adminpanel/Theaterdetails/TheaterContext.jsx';
+import { MovieProvider } from './Adminpanel/moviemanager/MovieContext.jsx';
+import { BannerProvider } from './Adminpanel/Banner/BannerContext.jsx';
+import Newbanner from './Adminpanel/Banner/Newbanner.jsx';
+import Managebanner from './Adminpanel/Banner/Managebanner.jsx';
+// import ManageCustomer from './Adminpanel/ManageCustomer.jsx';
 
 
 function Home() {
@@ -120,21 +128,21 @@ function Home() {
    <>
       
  
-        {/* <div className="grid-container ">
+        {/* <div className="grid-container "> */}
 
-          <Adminheader OpenSidebar={OpenSidebar}/>
+          {/* <Adminheader OpenSidebar={OpenSidebar}/>
           <Adminsidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar}/>
-          <Adminhome/>
+          <Adminhome/> */}
 
-         </div> */}
+         {/* </div> */}
 
- 
       <Navbar/>
       <Categories/>
       <Slider/>
-      <RecomendedMovies/>   
-      {/* <Comedyshow/>  */}
-      <Footer/> 
+      <RecomendedMovies/>    
+      {/* <Comedyshow/>   */}
+      <Footer/>
+     
   </>
   );
 }
@@ -142,21 +150,29 @@ function Home() {
 function App (){
   return (
     <>
-    
+      
+  <AuthProvider>  
    <BrowserRouter>
-    
-      {/* <Router> */}
 
-       
+ <BannerProvider>  
+  <MovieProvider>    
+    <TheaterProvider>
+      <UserProvider> 
         <Routes>
 
           {/*Adminlogin*/}
 
-                {/* <Route path="/admindashboard" element={<Adminhome />} /> 
-                <Route path="/register" element={<Register />} />
-                {/* <Route path="/categories" element={<AdminCategories />} /> */}
-                {/* <Route path="/theatermanage" element={<TheaterManager />} />
-                <Route path="/moviemanage" element={<Moviemanage />} />  */}
+            <Route path="/admin" element={<AdminLogin />} />
+            <Route path="/dashboard" element={<Adminhome />} /> 
+            <Route path="/newuser" element={<Newuser />} /> 
+            <Route path="/manageuser" element={<Manageuser />} />
+            <Route path="/newtheater" element={<Newtheater />} />
+            <Route path="/managetheater" element={<ManageTheater />} />
+            <Route path="/newmovie" element={<Newmovie />} />  
+            <Route path="/managemovie" element={<Managemovie />} />  
+            <Route path="/newbanner" element={<Newbanner />} />  
+            <Route path="/managebanner" element={<Managebanner />} />  
+            {/* <Route path="/managecustomer" element={<ManageCustomer />} /> */}
 
           {/*Adminlogin*/}
 
@@ -266,10 +282,12 @@ function App (){
 
 
         </Routes>
-      
-    {/* </Router> */}
-    </BrowserRouter>
-
+      </UserProvider>
+    </TheaterProvider>
+  </MovieProvider>
+</BannerProvider> 
+ </BrowserRouter>
+</AuthProvider>            
 
 
   </>
