@@ -12,7 +12,7 @@ function Adminheader({OpenSidebar}) {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    logout();
+    // logout();
     navigate('/admin');
   };
 

@@ -1095,37 +1095,93 @@ const ManageUser = () => {
     }
   };
 
+  //old PDF export function
+
+  // const handleExportPDF = () => {
+  //   const doc = new jsPDF();
+  //   doc.text('User Details', 14, 10);
+  //   autoTable(doc, {
+  //     startY: 20,
+  //     head: [['Name', 'Email', 'Contact', 'Designation', 'Permissions']],
+  //     body: exportData.map(user => [
+  //       user.name,
+  //       user.email,
+  //       user.contact,
+  //       user.designation || 'N/A',
+  //       Object.keys(user.permissions).filter(p => user.permissions[p]).join(', ')
+  //     ])
+  //   });
+  //   doc.save('users.pdf');
+  // };
+
+  //new PDF export function
+
   const handleExportPDF = () => {
-    const doc = new jsPDF();
-    doc.text('User Details', 14, 10);
-    autoTable(doc, {
-      startY: 20,
-      head: [['Name', 'Email', 'Contact', 'Designation', 'Permissions']],
-      body: exportData.map(user => [
-        user.name,
-        user.email,
-        user.contact,
-        user.designation || 'N/A',
-        Object.keys(user.permissions).filter(p => user.permissions[p]).join(', ')
-      ])
-    });
-    doc.save('users.pdf');
-  };
+  if (selectedUsers.length === 0) {
+    alert("Please select at least one user to export.");
+    return;
+  }
+
+  const dataToExport = users.filter(user => selectedUsers.includes(user._id));
+
+  const doc = new jsPDF();
+  doc.text('Selected User Details', 14, 10);
+  autoTable(doc, {
+    startY: 20,
+    head: [['Name', 'Email', 'Contact', 'Designation', 'Permissions']],
+    body: dataToExport.map(user => [
+      user.name,
+      user.email,
+      user.contact,
+      user.designation || 'N/A',
+      Object.keys(user.permissions).filter(p => user.permissions[p]).join(', ')
+    ])
+  });
+  doc.save('selected_users.pdf');
+};
+
+
+  //old EXCEL export function
+
+  // const handleExportExcel = () => {
+  //   const ws = XLSX.utils.json_to_sheet(
+  //     exportData.map(user => ({
+  //       Name: user.name,
+  //       Email: user.email,
+  //       Contact: user.contact,
+  //       Designation: user.designation || '',
+  //       Permissions: Object.keys(user.permissions).filter(p => user.permissions[p]).join(', ')
+  //     }))
+  //   );
+  //   const wb = XLSX.utils.book_new();
+  //   XLSX.utils.book_append_sheet(wb, ws, 'Users');
+  //   XLSX.writeFile(wb, 'users.xlsx');
+  // };
+
+  //new Excel export function   
 
   const handleExportExcel = () => {
-    const ws = XLSX.utils.json_to_sheet(
-      exportData.map(user => ({
-        Name: user.name,
-        Email: user.email,
-        Contact: user.contact,
-        Designation: user.designation || '',
-        Permissions: Object.keys(user.permissions).filter(p => user.permissions[p]).join(', ')
-      }))
-    );
-    const wb = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, 'Users');
-    XLSX.writeFile(wb, 'users.xlsx');
-  };
+  if (selectedUsers.length === 0) {
+    alert("Please select at least one user to export.");
+    return;
+  }
+
+  const dataToExport = users.filter(user => selectedUsers.includes(user._id));
+
+  const ws = XLSX.utils.json_to_sheet(
+    dataToExport.map(user => ({
+      Name: user.name,
+      Email: user.email,
+      Contact: user.contact,
+      Designation: user.designation || '',
+      Permissions: Object.keys(user.permissions).filter(p => user.permissions[p]).join(', ')
+    }))
+  );
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, 'Selected Users');
+  XLSX.writeFile(wb, 'selected_users.xlsx');
+};
+
 
   const handleCheckboxChange = (userId) => {
     setSelectedUsers(prev => {
@@ -1154,6 +1210,7 @@ const ManageUser = () => {
   };
 
   const handleDeleteSelected = async () => {
+    
     if (selectedUsers.length === 0) return;
 
     if (!window.confirm(`Are you sure you want to delete ${selectedUsers.length} user(s)?`)) return;
@@ -1190,7 +1247,7 @@ const ManageUser = () => {
         </div>
 
         <div className="manage-user-container">
-          <h3 className="newform">Manage User Form</h3>
+          <h3 className="newform">Manage User</h3>
 
           {loading ? (
             <p>Loading users...</p>
@@ -1211,7 +1268,7 @@ const ManageUser = () => {
               <div className="export-buttons">
                 <button
                   className="export-btn"
-                  onClick={handleDeleteSelected}
+                  onClick={handleDeleteSelected  }
                   title="Delete selected users"
                   disabled={selectedUsers.length === 0}
                 >
@@ -1222,7 +1279,9 @@ const ManageUser = () => {
                   <img src="https://cdn.iconscout.com/icon/free/png-256/free-microsoft-excel-icon-svg-png-download-1756310.png" alt="Excel" className="export-icon" />
                 </button>
 
-                <CSVLink
+              {/* old CSV export function */}
+
+                {/* <CSVLink
                   data={exportData.map(user => ({
                     Name: user.name,
                     Email: user.email,
@@ -1235,7 +1294,32 @@ const ManageUser = () => {
                   <button className="export-btn">
                     <img src="https://cdn-icons-png.flaticon.com/512/8242/8242984.png" alt="CSV" className="export-icon" />
                   </button>
-                </CSVLink>
+                </CSVLink> */}
+
+                {/* new CSV export function */}
+
+              {selectedUsers.length > 0 ? (
+  <CSVLink 
+    data={exportData.map(user => ({
+      Name: user.name,
+      Email: user.email,
+      Contact: user.contact,
+      Designation: user.designation || '',
+      Permissions: Object.keys(user.permissions).filter(p => user.permissions[p]).join(', ')
+    }))}
+    filename="selected_users.csv"
+  >
+    <button className="export-btn">
+      <img src="https://cdn-icons-png.flaticon.com/512/8242/8242984.png" alt="CSV" className="export-icon" />
+    </button>
+  </CSVLink>
+) : (
+  <button className="export-btn" onClick={() => alert("Please select at least one user to export.")} >
+    <img src="https://cdn-icons-png.flaticon.com/512/8242/8242984.png" alt="CSV" className="export-icon" />
+  </button>
+)}
+
+
 
                 <button className="export-btn" onClick={handleExportPDF}>
                   <img src='https://cdn-icons-png.freepik.com/512/14180/14180779.png' alt="PDF" className="export-icon" />

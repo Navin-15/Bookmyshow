@@ -66,15 +66,15 @@ input.form-control {
 .newtheaterformparent {
     background: #fff;
     margin-top: 3rem !important;
-    width: 60.2rem;
+    width: 59.2rem;
     position: relative;
     top: 75px;
-    left: 7.8rem;
+    left: 7.7rem;
     padding: 30px;
     border-radius: 8px;
 }
 .for {
-  width: 53vw; 
+  width: 40vw; 
 }
 
 .create-btn {

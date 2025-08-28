@@ -136,7 +136,7 @@ body {
 .form-actions {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: center !important;
   gap: 15px;
   position: relative;
   top: 10px;

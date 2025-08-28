@@ -102,12 +102,13 @@ import { UserProvider } from '../src/Adminpanel/UserContext.jsx';
 
 import Adminhome from './Adminpanel/AdminHome/Adminhome.jsx'
 // import Register from './Adminpanel/Register/Register.jsx'
-import Newtheater from './Adminpanel/Theaterdetails/Newtheater.jsx';
+// import Newtheater from './Adminpanel/Theaterdetails/Newtheater.jsx';
 import Managemovie from './Adminpanel/moviemanager/Managemovie.jsx';
 import Newmovie from './Adminpanel/moviemanager/Newmovie.jsx';
 import AdminLogin from './Adminpanel/AdminLogin/AdminLogin.jsx';
 import Newuser from './Adminpanel/User/Newuser.jsx';
 import Manageuser from './Adminpanel/User/Manageuser.jsx';
+import NewTheater from './Adminpanel/Theaterdetails/Newtheater.jsx';
 import ManageTheater from './Adminpanel/Theaterdetails/Managetheater.jsx';
 import { TheaterProvider } from './Adminpanel/Theaterdetails/TheaterContext.jsx';
 import { MovieProvider } from './Adminpanel/moviemanager/MovieContext.jsx';
@@ -115,6 +116,8 @@ import { BannerProvider } from './Adminpanel/Banner/BannerContext.jsx';
 import Newbanner from './Adminpanel/Banner/Newbanner.jsx';
 import Managebanner from './Adminpanel/Banner/Managebanner.jsx';
 // import ManageCustomer from './Adminpanel/ManageCustomer.jsx';
+
+// import ProtectedRoute from './Adminpanel/ProtectedRoute'; // import at top
 
 
 function Home() {
@@ -163,15 +166,27 @@ function App (){
           {/*Adminlogin*/}
 
             <Route path="/admin" element={<AdminLogin />} />
-            <Route path="/dashboard" element={<Adminhome />} /> 
+            <Route path="/dashboard" element={<Adminhome /> } /> 
             <Route path="/newuser" element={<Newuser />} /> 
             <Route path="/manageuser" element={<Manageuser />} />
-            <Route path="/newtheater" element={<Newtheater />} />
+            <Route path="/newtheater" element={<NewTheater />} />
             <Route path="/managetheater" element={<ManageTheater />} />
-            <Route path="/newmovie" element={<Newmovie />} />  
-            <Route path="/managemovie" element={<Managemovie />} />  
+            <Route path="/newmovie" element={ <Newmovie />} />  
+            <Route path="/managemovie" element={ <Managemovie /> } />  
             <Route path="/newbanner" element={<Newbanner />} />  
-            <Route path="/managebanner" element={<Managebanner />} />  
+            <Route path="/managebanner" element={ <Managebanner /> } />  
+            {/* <Route path="/managecustomer" element={<ManageCustomer />} /> */}
+            
+            {/* <Route path="/admin" element={<AdminLogin />} />
+            <Route path="/dashboard" element={<ProtectedRoute> <Adminhome /> </ProtectedRoute>} /> 
+            <Route path="/newuser" element={<ProtectedRoute> <Newuser /> </ProtectedRoute>} /> 
+            <Route path="/manageuser" element={<ProtectedRoute> <Manageuser /> </ProtectedRoute>} />
+            <Route path="/newtheater" element={<ProtectedRoute> <NewTheater /> </ProtectedRoute>} />
+            <Route path="/managetheater" element={<ProtectedRoute> <ManageTheater /> </ProtectedRoute>} />
+            <Route path="/newmovie" element={<ProtectedRoute> <Newmovie /> </ProtectedRoute>} />  
+            <Route path="/managemovie" element={<ProtectedRoute> <Managemovie /> </ProtectedRoute>} />  
+            <Route path="/newbanner" element={<ProtectedRoute> <Newbanner /> </ProtectedRoute>} />  
+            <Route path="/managebanner" element={<ProtectedRoute> <Managebanner /> </ProtectedRoute>} />   */}
             {/* <Route path="/managecustomer" element={<ManageCustomer />} /> */}
 
           {/*Adminlogin*/}
