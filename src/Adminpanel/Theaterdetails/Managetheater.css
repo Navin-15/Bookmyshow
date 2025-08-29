@@ -1,12 +1,15 @@
-/* .managediv {
-width: 75.3vw;
-position: absolute;
-left: 17.7rem;
-top: 5rem;
-border-radius: 8px;
-background-color: rgb(170, 183, 195);
-box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-} */
+.managetheater {
+  width: 74.3% !important;
+  border-radius: 8px;
+  position: absolute;
+  right: 45px;
+  top: 70px;
+  padding: 3px;
+  display: flex;
+  background: #fff;
+  padding-left: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
 
 .manage-user-container {
     height: 95vh;
@@ -26,11 +29,6 @@ box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 .table-light {
 background-color: red;
 }
-.text {
-padding: 1px;
-padding-left: 15px;
-}
-
 .delete {
     height: 40px;
     width: 40px;

@@ -591,6 +591,8 @@
 
 // export default ManageTheater;
 
+
+
 //CLONE CODE FOR WORKING
 
 // import React, { useState, useEffect } from 'react';
@@ -849,6 +851,9 @@
 // };
 
 // export default ManageTheater;
+
+
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate, useLocation } from 'react-router-dom';
@@ -1026,7 +1031,7 @@ const ManageTheater = () => {
 
       <div className="parent">
 
-        <div className="text">
+        <div className="managetheater">
           <h5 className="text-danger fw-bold mt-1">Theater</h5>
           <span className="mt-1 ms-3">{menuName}</span>
         </div>

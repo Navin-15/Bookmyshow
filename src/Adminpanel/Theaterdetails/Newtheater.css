@@ -1,25 +1,11 @@
 
-
-.user-form-container {
-  background-color: white;
-  padding: 30px;
-  border-radius: 12px;
-  position: absolute;
-  left: 17.8rem;
-  margin-top: 140px;
-  max-width: 960px;
-  /* margin-left: auto;
-  margin-right: auto; */
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.text {
+.theater {
   width: 74%;
   border-radius: 8px;
   position: absolute;
   right: 45px;
   top: 70px;
-  padding: 5px;
+  padding: 3px;
   display: flex;
   background: #fff;
   padding-left: 20px;
@@ -40,7 +26,6 @@
 
 
 .form-actions button {
-    /* background-color: transparent !important; */
     border-radius: 30px;
     border: 2px solid #dc3545;
     color: black;
@@ -68,20 +53,32 @@ input.form-control {
     margin-top: 3rem !important;
     width: 59.2rem;
     position: relative;
-    top: 75px;
+    top: 80px;
     left: 7.7rem;
-    padding: 30px;
+    padding: 25px;
     border-radius: 8px;
 }
 .for {
-  width: 40vw; 
+  position: relative;
+  width: 70vw;
+  padding: 5px; 
+  gap: 8px;
+}
+.for input{
+  width: 20vw; 
+  display: flex;
+  gap: 8px;
 }
 
 .create-btn {
   padding: 10px 25px !important;
+  height: 3rem; 
+  position: absolute;
+  right: 0rem;
+  bottom: 0.5rem;
   font-size: 14px;
   font-weight: 600;
-  border-radius: 20px;
+  border-radius: 30px;
   border: 1.8px solid red !important;
   cursor: pointer;
   transition: all 0.2s ease-in-out;

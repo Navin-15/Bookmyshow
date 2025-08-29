@@ -1,5 +1,19 @@
 /* MovieManager.css */
 
+.movie {
+  width: 74%;
+  border-radius: 8px;
+  position: absolute;
+  right: 45px;
+  top: 70px;
+  padding: 3px;
+  display: flex;
+  background: #fff;
+  padding-left: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+
 /* Example: Add spacing between cards and responsive overflow */
 .movie-card img {
   object-fit: cover;
@@ -32,7 +46,6 @@ input.form-control {
   border-radius: 3px;
 }
 .createupdatediv button {
-    /* background-color: transparent !important; */
     border-radius: 30px;
     padding: 10px 20px;
     border: 2px solid #dc3545;
@@ -48,6 +61,34 @@ input.form-control {
     border: 2px solid #dc3545;
     color: white;
 }
-
-
   
+/* Newmovie.css */
+.sideside {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.create,
+.clear {
+  padding: 10px 25px !important;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.create {
+  background-color: red !important;
+}
+
+
+.clear {
+  background-color: transparent !important;
+  color: black !important;
+  border-radius: 30px !important ;
+  border: 1px solid red !important;
+}

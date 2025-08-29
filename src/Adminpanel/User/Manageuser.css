@@ -1,6 +1,5 @@
 .parent {
   padding: 30px;
-  /* background-color: #fdddf3; */
   min-height: 120vh;
   font-family: 'Segoe UI', sans-serif;
 }
@@ -14,9 +13,9 @@
   height: 95vh;
   margin-bottom: 30px;
   position: absolute;
-  left: 21.9%;
+  left: 21.8% !important ;
   top: 23.5%;
-  width: 75.2%;
+  width: 74.3% !important;
   margin-left: 3px;
   padding: 30px 30px;
   border-radius: 8px;
@@ -32,13 +31,13 @@
   color: red;
 }
 
-.text {
-  width: 75.2%;
+.managetemplate {
+  width: 74.3%;
   border-radius: 8px;
   position: absolute;
-  right: 35px;
+  right: 45px;
   top: 70px;
-  padding: 5px;
+  padding: 3px;
   display: flex;
   background: #fff;
   padding-left: 20px;
@@ -57,14 +56,6 @@
   color: #666;
   margin-bottom: 25px;
 }
-
-/* .table-container {
-  background: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  overflow-x: auto;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-} */
 
 .table-controls {
   display: flex;
@@ -136,14 +127,6 @@
   font-weight: bold;
 } 
 
-/* buttons css  */
-.export-buttons {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin: 10px 0px 20px 0px;
-}
-
 .export-btn {
   display: flex;
   align-items: center;
@@ -169,12 +152,8 @@
   text-decoration: none;
 }
 
-
-/* buttons css  */
-
-
-
 /* Badge colors matching your image */
+
 .badge-user {
   background-color: #e91e63;
   color: white;
@@ -206,6 +185,7 @@
 }
 
 /* Example custom permissions */
+
 .badge-staff {
   background-color: #6d4c41;
   color: white;
@@ -237,6 +217,7 @@
 }
 
 /* Button Icons - Bootstrap Icons optional */
+
 .btn i {
   font-size: 1rem;
   vertical-align: middle;
@@ -275,7 +256,7 @@
   gap: 10px;
   position: absolute;
   top: 4.3rem;
-  left: 46.5rem;
+  left: 45rem !important;
   display: flex;
   
 }
@@ -301,6 +282,7 @@
 /* controlin over flow css */
 
 /* Makes table scrollable horizontally */
+
 .table-responsive {
   width: 100%;
   overflow-x: auto;
