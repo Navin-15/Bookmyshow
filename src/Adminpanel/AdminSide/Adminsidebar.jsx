@@ -221,9 +221,15 @@ import {
 import { useNavigate } from "react-router-dom";
 import adminlogo from '../../../images/BookMyShow.png';
 
+//new
+import { useAuth } from '../AuthContext';
+
 const AdminSidebar = () => {
   const [expandedMenu, setExpandedMenu] = useState(null);
   const navigate = useNavigate();
+
+  //new 
+  const { user } = useAuth();
 
   const handleMenuToggle = (menu) => {
     setExpandedMenu(expandedMenu === menu ? null : menu);
@@ -234,7 +240,7 @@ const AdminSidebar = () => {
 
     <div className="Adminslider">
       <div className="Adminlogodiv">
-        <img src={adminlogo} className="adminlogo" alt="" />
+        <img src={adminlogo} className="adminlogo" alt="Admin Logo" />
       </div>
 
       <ul className="adminUl">
@@ -242,130 +248,128 @@ const AdminSidebar = () => {
           <FaHome style={iconStyle} />
           <span>Dashboard</span>
         </li>
+
            {/* User */}
-        <li style={menuItemStyle}
-          onClick={() => handleMenuToggle("user")}
-        >
-          <FaUser style={iconStyle} />
+          
+        {user?.permissions?.user && (
+        <>
+          <li style={menuItemStyle} onClick={() => handleMenuToggle("user")}>
+              <FaUser style={iconStyle} />
           <span>
             User {" "}
-            {expandedMenu === "user" ? (
-              <FaChevronDown className="chevrondown" />
-            ) : (
-              <FaChevronRight className="chevronright" />
-            )}
+            {expandedMenu === "user" ? (<FaChevronDown className="chevrondown" />) : (<FaChevronRight className="chevronright" />)}
           </span>
-        </li>
-        {/* Submenu for User*/}
-        {expandedMenu === "user" && (
+          </li>
+          {/* Submenu for User*/}
+          {expandedMenu === "user" && (
           <>
-              <li style={submenuItemStyle} onClick={() => navigate("/newuser", { state: { menu: "New User" } })}>
-                New User
-              </li>
-              <li style={submenuItemStyle} onClick={() => navigate("/manageuser", { state: { menu: "Manage User" } })}>
-                Manage User
-              </li></>
-         
-        )}
-        {/* Theater Menu with Toggle */}
-        <li style={menuItemStyle}
-          onClick={() => handleMenuToggle("theater")}
-        >
+            <li style={submenuItemStyle} onClick={() => navigate("/newuser", { state: { menu: "New User" } })}>
+              New User
+            </li>
+            <li style={submenuItemStyle} onClick={() => navigate("/manageuser", { state: { menu: "Manage User" } })}>
+              Manage User
+            </li>
+          </> 
+          )}
+        </>
+      )}  
+
+      {/* Theater Menu with Toggle */}
+      {user?.permissions?.theater && (
+          <>  
+        <li style={menuItemStyle} onClick={() => handleMenuToggle("theater")}>
           <FaThList style={iconStyle} />
           <span>
             Theater {" "}
-            {expandedMenu === "theater" ? (
-              <FaChevronDown className="chevrondown" />
-            ) : (
-              <FaChevronRight className="chevronright" />
-            )}
+            {expandedMenu === "theater" ? (<FaChevronDown className="chevrondown" />) : (<FaChevronRight className="chevronright" />)}
           </span>
         </li>
         {/* Submenu for Theater*/}
         {expandedMenu === "theater" && (
           <>
-              <li style={submenuItemStyle} onClick={() => navigate("/newtheater", { state: { menu: "New Theater" } })}>
-                New Theater
-              </li>
-              <li style={submenuItemStyle} onClick={() => navigate("/managetheater", { state: { menu: "Manage Theater" } })}>
-                Manage Theater
-              </li></>
-         
+            <li style={submenuItemStyle} onClick={() => navigate("/newtheater", { state: { menu: "New Theater" } })}>
+              New Theater
+            </li>
+            <li style={submenuItemStyle} onClick={() => navigate("/managetheater", { state: { menu: "Manage Theater" } })}>
+              Manage Theater
+            </li>
+          </>
         )}
+      </>
+      )}
+
         {/* Movie */}
-        <li style={menuItemStyle}
-          onClick={() => handleMenuToggle("movie")}
-        >
+
+      {user?.permissions?.movie && (
+      <> 
+        <li style={menuItemStyle}onClick={() => handleMenuToggle("movie")}>
           <FaBoxOpen style={iconStyle} />
           <span>
             Movie {" "}
-            {expandedMenu === "movie" ? (
-              <FaChevronDown className="chevrondown" />
-            ) : (
-              <FaChevronRight className="chevronright" />
-            )}
+            {expandedMenu === "movie" ? (<FaChevronDown className="chevrondown" />) : (<FaChevronRight className="chevronright" />)}
           </span>
         </li>
         {/* Submenu for Movie*/}
         {expandedMenu === "movie" && (
           <>
-              <li style={submenuItemStyle} onClick={() => navigate("/newmovie", { state: { menu: "New Movie" } })}>
-                New Movie
-              </li>
-              <li style={submenuItemStyle} onClick={() => navigate("/managemovie", { state: { menu: "Manage Movie" } })}>
-                Manage Movie
-              </li></>
-         
+            <li style={submenuItemStyle} onClick={() => navigate("/newmovie", { state: { menu: "New Movie" } })}>
+              New Movie
+            </li>
+            <li style={submenuItemStyle} onClick={() => navigate("/managemovie", { state: { menu: "Manage Movie" } })}>
+              Manage Movie
+            </li>
+          </>
         )}
-     {/* Banner */}
-        <li style={menuItemStyle}
-          onClick={() => handleMenuToggle("banner")}
-        >
+      </>
+      )}
+
+        {/* Banner */}
+
+      {user?.permissions?.banner && (
+      <> 
+        <li style={menuItemStyle} onClick={() => handleMenuToggle("banner")}>
           <FaImage style={iconStyle} />
           <span>
             Banner {" "}
-            {expandedMenu === "banner" ? (
-              <FaChevronDown className="chevrondown" />
-            ) : (
-              <FaChevronRight className="chevronright" />
-            )}
+            {expandedMenu === "banner" ? (<FaChevronDown className="chevrondown" />) : (<FaChevronRight className="chevronright" />)}
           </span>
         </li>
         {/* Submenu for Banner*/}
         {expandedMenu === "banner" && (
           <>
-              <li style={submenuItemStyle} onClick={() => navigate("/newbanner", { state: { menu: "New Banner" } })}>
-                New Banner
-              </li>
-              <li style={submenuItemStyle} onClick={() => navigate("/managebanner", { state: { menu: "Manage Banner" } })}>
-                Manage Banner
-              </li></>
-         
+            <li style={submenuItemStyle} onClick={() => navigate("/newbanner", { state: { menu: "New Banner" } })}>
+              New Banner
+            </li>
+            <li style={submenuItemStyle} onClick={() => navigate("/managebanner", { state: { menu: "Manage Banner" } })}>
+              Manage Banner
+            </li>
+          </>
         )}
+      </>
+      )}
+
         {/* Customer */}
-        <li style={menuItemStyle}
-          onClick={() => handleMenuToggle("customer")}
-        >
+
+      {user?.permissions?.customer && (
+      <>
+
+        <li style={menuItemStyle} onClick={() => handleMenuToggle("customer")}>
           <FaUser style={iconStyle} />
           <span>
             Customer {" "}
-            {expandedMenu === "customer" ? (
-              <FaChevronDown className="chevrondown" />
-            ) : (
-              <FaChevronRight className="chevronright" />
-            )}
+            {expandedMenu === "customer" ? (<FaChevronDown className="chevrondown" />) : (<FaChevronRight className="chevronright" />)}
           </span>
         </li>
         {/* Submenu for Cutomer*/}
         {expandedMenu === "customer" && (
           <>
-              {/* <li style={submenuItemStyle} onClick={() => setActiveContent("newUser")}>
-            New User
-              </li> */}
            <li style={submenuItemStyle} onClick={() => navigate("/managecustomer")}>
             Manage Customer
           </li></>
         )}
+      </>
+      )}
+
       </ul>
     </div>
 

@@ -328,7 +328,7 @@ import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../AdminLogin/AdminLogin.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import { AuthContext } from '../AuthContext';
+
 import { useAuth } from '../AuthContext';
 
 function AdminLogin() {
@@ -336,8 +336,8 @@ function AdminLogin() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
-  // const { setUsername } = useContext(AuthContext);
-  const { login, setUsername } = useAuth();
+ 
+  const { login, setUser } = useAuth();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -355,7 +355,7 @@ function AdminLogin() {
       const data = await response.json();
 
       if (response.ok) {
-        setUsername(data.user.email); // or user.name if you have a name field
+        setUser(data.user); // Store complete user info including permissions
         login(); 
         navigate('/dashboard');
       } else {

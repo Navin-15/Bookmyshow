@@ -170,7 +170,7 @@
 
 
 
-      import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import React, { useState } from 'react';
 
 const Login = () => {
@@ -192,7 +192,6 @@ const Login = () => {
         } else if (!/\S+@\S+\.\S+/.test(email)) {
             newErrors.email = "Invalid email format.";
         }
-
         if (!password) {
             newErrors.password = "Password is required.";
         } else if (password.length < 6) {
