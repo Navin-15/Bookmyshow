@@ -1,13 +1,25 @@
-.manage-banner-container {
-  /* padding: 40px; */
-  background: #fff;
-  padding: 40px;
-  width: 60.1rem;
+.banner {
+  width: 74%;
   border-radius: 8px;
   position: absolute;
-  top: 9rem;
-  left: 17.7rem;
+  right: 45px;
+  top: 70px;
+  padding: 3px;
+  display: flex;
+  background: #fff;
+  padding-left: 20px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.manage-banner-container {
+ background: #fff;
+    margin-top: 3rem !important;
+    width: 59.2rem;
+    position: relative;
+    top: 80px;
+    left: 18rem;
+    padding: 25px;
+    border-radius: 8px;
 }
 
 .manage-banner-container h2 {

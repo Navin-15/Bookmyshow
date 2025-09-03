@@ -55,7 +55,7 @@ input.form-control {
     position: relative;
     top: 80px;
     left: 7.7rem;
-    padding: 25px;
+    padding: 45px 25px;
     border-radius: 8px;
 }
 .for {
@@ -65,7 +65,7 @@ input.form-control {
   gap: 8px;
 }
 .for input{
-  width: 20vw; 
+  width: 69vw; 
   display: flex;
   gap: 8px;
 }
@@ -75,7 +75,7 @@ input.form-control {
   height: 3rem; 
   position: absolute;
   right: 0rem;
-  bottom: 0.5rem;
+  bottom: -2.3rem;
   font-size: 14px;
   font-weight: 600;
   border-radius: 30px;
@@ -88,4 +88,37 @@ input.form-control {
 
 form {
   padding: 0px;
+}
+
+
+/* Style select input with custom dropdown icon */
+.select-with-icon {
+  appearance: none; /* Remove default arrow in modern browsers */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='gray' height='18' viewBox='0 0 24 24' width='18' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 18px;
+  padding-right: 35px; /* Add padding so text doesn't overlap icon */
+}
+
+
+
+
+
+
+
+
+.react-select__multi-value {
+  background-color: #e0e0e0;
+  border-radius: 20px !important;
+}
+
+.react-select__multi-value__label {
+  color: #333;
+}
+
+.react-select__multi-value__remove {
+  color: #666;
 }

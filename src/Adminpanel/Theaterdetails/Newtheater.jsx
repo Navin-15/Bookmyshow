@@ -308,8 +308,140 @@
 
 
 // frontend/TheaterManager.jsx
+// import React, { useState, useEffect } from 'react';
+// import axios from 'axios';
+// import { useLocation, useNavigate } from 'react-router-dom';
+// import Adminsidebar from '../AdminSide/Adminsidebar';
+// import Adminheader from '../AdminHead/Adminheader';
+// import './Newtheater.css';
+
+// export default function NewTheater() {
+//   const location = useLocation();
+//   const navigate = useNavigate();
+
+//   const menuName = location.state?.menu || "No data received";  
+//   const [cinema, setCinema] = useState('');
+//   const [screen, setScreen] = useState('');
+//   const [showTime, setShowTime] = useState('');
+//   const [errors, setErrors] = useState({});
+//   const [openSidebarToggle, setOpenSidebarToggle] = useState(false);
+
+//   // Extract if we're editing
+//   const isEdit = location.state?.isEdit || false;
+//   const editEntry = location.state?.entry || null;
+
+//   useEffect(() => {
+//     if (isEdit && editEntry) {
+//       setCinema(editEntry.cinema);
+//       setScreen(editEntry.screen);
+//       setShowTime(editEntry.showTime);
+//     }
+//   }, [isEdit, editEntry]);
+
+//   const validateForm = () => {
+//     const newErrors = {};
+//     if (!cinema.trim()) newErrors.cinema = "Cinema name is required";
+//     if (!screen.trim()) newErrors.screen = "Screen is required";
+//     if (!showTime.trim()) newErrors.showTime = "Show time is required";
+//     setErrors(newErrors);
+//     return Object.keys(newErrors).length === 0;
+//   };
+
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+//     if (!validateForm()) return;
+
+//     try {
+//       if (isEdit) {
+//         // Update existing entry
+//         await axios.put(`http://localhost:5000/api/theaters/${editEntry._id}`, {
+//           cinema, screen, showTime
+//         });
+//         alert('Theater entry updated!');
+//       } else {
+//         // Create new entry
+//         await axios.post('http://localhost:5000/api/theaters', {
+//           cinema, screen, showTime
+//         });
+//         alert('Theater entry added!');
+//       }
+
+//       // Redirect to ManageTheater
+//       navigate('/managetheater');
+
+//     } catch (err) {
+//       console.error("Error:", err);
+//       alert("Operation failed.");
+//     }
+//   };
+
+//   const OpenSidebar = () => setOpenSidebarToggle(!openSidebarToggle);
+
+//   return (
+//     <>
+//       <Adminheader />
+//        <div className="sideside">
+//          <Adminsidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar} />
+//        </div>
+
+//        <div className="theater">
+//          <h5 className="text-danger fw-bold mt-1">Theater</h5> &nbsp; &nbsp;
+//          <span className="mt-1">{menuName}</span>
+//        </div>
+
+
+//       <div className="container mt-5  newtheaterformparent">
+//         <h3 className='text-danger'>{isEdit ? "Edit Theater Entry" : "Create New Theater"}</h3>
+//         <form onSubmit={handleSubmit} className='for'>
+//           <div className="mb-3">
+//             <label>Theater Name</label>
+//             <input
+//               type="text"
+//               value={cinema}
+//               placeholder="Enter Theater Name"
+//               onChange={(e) => setCinema(e.target.value)}
+//               className={`form-control ${errors.cinema ? 'is-invalid' : ''}`}
+//             />
+//             {errors.cinema && <div className="invalid-feedback">{errors.cinema}</div>}
+//           </div>
+
+//           <div className="mb-3">
+//             <label>Screen Name</label>
+//             <input
+//               type="text"
+//               value={screen}
+//               placeholder="Enter Screen Name"
+//               onChange={(e) => setScreen(e.target.value)}
+//               className={`form-control ${errors.screen ? 'is-invalid' : ''}`}
+//             />
+//             {errors.screen && <div className="invalid-feedback">{errors.screen}</div>}
+//           </div>
+
+//           <div className="mb-3">
+//             <label>Show Timings</label>
+//             <input
+//               type="text"
+//               value={showTime}
+//               placeholder="Enter Show Timing"
+//               onChange={(e) => setShowTime(e.target.value)}
+//               className={`form-control ${errors.showTime ? 'is-invalid' : ''}`}
+//             />
+//             {errors.showTime && <div className="invalid-feedback">{errors.showTime}</div>}
+//           </div>
+
+//           <button type="submit" className="create-btn">
+//             {isEdit ? "Update" : "Create"}
+//           </button>
+//         </form>
+//       </div>
+//     </>
+//   );
+// }
+
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Select from 'react-select';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Adminsidebar from '../AdminSide/Adminsidebar';
 import Adminheader from '../AdminHead/Adminheader';
@@ -322,30 +454,44 @@ export default function NewTheater() {
   const menuName = location.state?.menu || "No data received";  
   const [cinema, setCinema] = useState('');
   const [screen, setScreen] = useState('');
-  const [showTime, setShowTime] = useState('');
+  const [showTime, setShowTime] = useState([]);
   const [errors, setErrors] = useState({});
   const [openSidebarToggle, setOpenSidebarToggle] = useState(false);
 
-  // Extract if we're editing
+  const showTimeOptions = [
+  { value: "09:00 AM", label: "09:00 AM" },
+  { value: "12:30 PM", label: "12:30 PM" },
+  { value: "04:00 PM", label: "04:00 PM" },
+  { value: "07:30 PM", label: "07:30 PM" },
+  { value: "11:00 PM", label: "11:00 PM" },
+];
+
+
   const isEdit = location.state?.isEdit || false;
   const editEntry = location.state?.entry || null;
 
   useEffect(() => {
-    if (isEdit && editEntry) {
-      setCinema(editEntry.cinema);
-      setScreen(editEntry.screen);
-      setShowTime(editEntry.showTime);
-    }
-  }, [isEdit, editEntry]);
+  if (isEdit && editEntry) {
+    setCinema(editEntry.cinema);
+    setScreen(editEntry.screen);
+    setShowTime(
+      Array.isArray(editEntry.showTime)
+        ? editEntry.showTime.map(time => ({ value: time, label: time }))
+        : []
+    );
+  }
+}, [isEdit, editEntry]);
+
 
   const validateForm = () => {
-    const newErrors = {};
-    if (!cinema.trim()) newErrors.cinema = "Cinema name is required";
-    if (!screen.trim()) newErrors.screen = "Screen is required";
-    if (!showTime.trim()) newErrors.showTime = "Show time is required";
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
+  const newErrors = {};
+  if (!cinema.trim()) newErrors.cinema = "Theater name is required";
+  if (!screen.trim()) newErrors.screen = "Screen is required";
+  if (!showTime || showTime.length === 0) newErrors.showTime = "Select at least one show time";
+  setErrors(newErrors);
+  return Object.keys(newErrors).length === 0;
+};
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -353,20 +499,21 @@ export default function NewTheater() {
 
     try {
       if (isEdit) {
-        // Update existing entry
         await axios.put(`http://localhost:5000/api/theaters/${editEntry._id}`, {
-          cinema, screen, showTime
+          cinema, 
+          screen, 
+          showTime: showTime.map(option => option.value)
         });
         alert('Theater entry updated!');
       } else {
-        // Create new entry
         await axios.post('http://localhost:5000/api/theaters', {
-          cinema, screen, showTime
+          cinema, 
+          screen, 
+          showTime: showTime.map(option => option.value) // convert to plain array
         });
         alert('Theater entry added!');
       }
 
-      // Redirect to ManageTheater
       navigate('/managetheater');
 
     } catch (err) {
@@ -380,54 +527,81 @@ export default function NewTheater() {
   return (
     <>
       <Adminheader />
-       <div className="sideside">
-         <Adminsidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar} />
-       </div>
+      <div className="sideside">
+        <Adminsidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar} />
+      </div>
 
-       <div className="theater">
-         <h5 className="text-danger fw-bold mt-1">Theater</h5> &nbsp; &nbsp;
-         <span className="mt-1">{menuName}</span>
-       </div>
+      <div className="theater">
+        <h5 className="text-danger fw-bold mt-1">Theater</h5> &nbsp; &nbsp;
+        <span className="mt-1">{menuName}</span>
+      </div>
 
-
-      <div className="container mt-5  newtheaterformparent">
+      <div className="container mt-5 newtheaterformparent">
         <h3 className='text-danger'>{isEdit ? "Edit Theater Entry" : "Create New Theater"}</h3>
         <form onSubmit={handleSubmit} className='for'>
-          <div className="mb-3">
-            <label>Cinema</label>
-            <input
-              type="text"
+
+          {/* Cinema Select */}
+          {/* <div className="mb-3">
+            <label>Theater Name</label>
+            <select
               value={cinema}
-              placeholder="Enter Cinema"
               onChange={(e) => setCinema(e.target.value)}
-              className={`form-control ${errors.cinema ? 'is-invalid' : ''}`}
-            />
+              className={`form-control select-with-icon ${errors.cinema ? 'is-invalid' : ''}`}
+            >
+              <option value="">Select Theater</option>
+              <option value="Cosmo Cinemas PEELAMEDU AC 4K:Coimbatore">Cosmo Cinemas PEELAMEDU AC:Coimbatore</option>
+              <option value="Karpagam Theatres Theatres 4K Dolby Atmos:Coimbatore">Karpagam Theatres Theatres 4K Dolby Atmos:Coimbatore</option>
+              <option value="Murugan CinemasCinemas A/C 4K Atmos:Thudiyalur ">Murugan CinemasCinemas A/C 4K Atmos:Thudiyalur </option>
+              <option value="Sri Sakthi Kalpana Cinemas:Kavundampalayam">Sri Sakthi Kalpana Cinemas:Kavundampalayam</option>
+              <option value="Sathyam Cinemas">Sathyam Cinemas</option>
+            </select>
             {errors.cinema && <div className="invalid-feedback">{errors.cinema}</div>}
-          </div>
+          </div> */}
 
           <div className="mb-3">
-            <label>Screen</label>
-            <input
-              type="text"
+  <label>Theater Name</label>
+  <input
+    type="text"
+    value={cinema}
+    onChange={(e) => setCinema(e.target.value)}
+    className={`form-control ${errors.cinema ? 'is-invalid' : ''}`}
+    placeholder="Enter Theater Name"
+  />
+  {errors.cinema && <div className="invalid-feedback">{errors.cinema}</div>}
+</div>
+
+
+          {/* Screen Select */}
+          <div className="mb-3">
+            <label>Screen Name</label>
+            <select
               value={screen}
-              placeholder="Enter Screen"
               onChange={(e) => setScreen(e.target.value)}
-              className={`form-control ${errors.screen ? 'is-invalid' : ''}`}
-            />
+              className={`form-control select-with-icon ${errors.screen ? 'is-invalid' : ''}`}
+            >
+              <option value="">Select Screen</option>
+              <option value="Screen A">Screen A</option>
+              <option value="Screen B">Screen B</option>
+              <option value="Screen C">Screen C</option>
+              <option value="Screen D">Screen D</option>
+              <option value="Screen E">Screen E</option>
+            </select>
             {errors.screen && <div className="invalid-feedback">{errors.screen}</div>}
           </div>
 
-          <div className="mb-3">
-            <label>Show Time</label>
-            <input
-              type="text"
-              value={showTime}
-              placeholder="Enter Show Time"
-              onChange={(e) => setShowTime(e.target.value)}
-              className={`form-control ${errors.showTime ? 'is-invalid' : ''}`}
+          {/* Show Time Select */}
+         <div className="mb-3">
+              <label>Show Timings</label>
+            <Select
+            isMulti
+            name="showTimes"
+            options={showTimeOptions}
+            value={showTime}
+            onChange={(selectedOptions) => setShowTime(selectedOptions)}
+            classNamePrefix="react-select"
             />
-            {errors.showTime && <div className="invalid-feedback">{errors.showTime}</div>}
-          </div>
+          {errors.showTime && <div className="text-danger mt-1">{errors.showTime}</div>}
+        </div>
 
           <button type="submit" className="create-btn">
             {isEdit ? "Update" : "Create"}

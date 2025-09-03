@@ -844,7 +844,7 @@
 
 //working code 
 
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import '../moviemanager/Newmovie.css';
 import Adminsidebar from '../AdminSide/Adminsidebar';
@@ -877,6 +877,18 @@ const MovieManager = () => {
   const navigate = useNavigate();
   const [openSidebarToggle, setOpenSidebarToggle] = useState(false);
   const [errors, setErrors] = useState({});
+
+
+  useEffect(() => {
+  const stateMovie = location.state?.movie;
+  const isEdit = location.state?.edit;
+
+  if (isEdit && stateMovie) {
+    setForm(stateMovie);
+    setEditIndex(stateMovie._id);  // Use the MongoDB ID to update later
+  }
+}, [location.state]);
+
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -960,13 +972,46 @@ const MovieManager = () => {
   //   navigate('/managemovie');
   // };
 
-  const submit = async (e) => {
+//   const submit = async (e) => {
+//   e.preventDefault();
+//   if (!validateForm()) return;
+
+//   try {
+//     const response = await fetch('http://localhost:5000/api/movies', {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json'
+//       },
+//       body: JSON.stringify(form)
+//     });
+
+//     if (!response.ok) {
+//       const errorData = await response.json();
+//       throw new Error(errorData.error || 'Failed to save movie');
+//     }
+
+//     clearForm();
+//     navigate('/managemovie');
+//   } catch (error) {
+//     console.error('Error saving movie:', error.message);
+//     alert('Failed to save movie. Check console for details.');
+//   }
+// };
+
+
+const submit = async (e) => {
   e.preventDefault();
   if (!validateForm()) return;
 
   try {
-    const response = await fetch('http://localhost:5000/api/movies', {
-      method: 'POST',
+    const url = editIndex
+      ? `http://localhost:5000/api/movies/${editIndex}`  // For update
+      : 'http://localhost:5000/api/movies';              // For create
+
+    const method = editIndex ? 'PUT' : 'POST';
+
+    const response = await fetch(url, {
+      method,
       headers: {
         'Content-Type': 'application/json'
       },
@@ -985,6 +1030,7 @@ const MovieManager = () => {
     alert('Failed to save movie. Check console for details.');
   }
 };
+
 
 
   const clearForm = () => {

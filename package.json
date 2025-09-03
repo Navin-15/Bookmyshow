@@ -33,6 +33,7 @@
     "react-modal": "^3.16.3",
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.5.2",
+    "react-select": "^5.10.2",
     "react-time-picker": "^8.0.2",
     "recharts": "^3.1.2",
     "swiffy-slider": "^1.6.0",

@@ -230,23 +230,45 @@ export default function MovieDisplay() {
     fetchMovies();
   }, []);
 
-  const handleDelete = async (id) => {
-    if (!window.confirm('Are you sure you want to delete this movie?')) return;
+  // const handleDelete = async (id) => {
+  //   if (!window.confirm('Are you sure you want to delete this movie?')) return;
 
-    try {
-      const res = await fetch(`http://localhost:5000/api/movies/${id}`, {
-        method: 'DELETE'
-      });
+  //   try {
+  //     const res = await fetch(`http://localhost:5000/api/movies/${id}`, {
+  //       method: 'DELETE'
+  //     });
 
-      if (res.ok) {
-        setMovies(movies.filter(movie => movie._id !== id));
-      } else {
-        console.error('Failed to delete movie');
-      }
-    } catch (err) {
-      console.error('Error deleting movie:', err);
+  //     if (res.ok) {
+  //       setMovies(movies.filter(movie => movie._id !== id));
+  //     } else {
+  //       console.error('Failed to delete movie');
+  //     }
+  //   } catch (err) {
+  //     console.error('Error deleting movie:', err);
+  //   }
+  // };
+
+const handleDelete = async (id) => {
+  if (!window.confirm('Are you sure you want to delete this movie?')) return;
+
+  try {
+    const res = await fetch(`http://localhost:5000/api/movies/${id}`, {
+      method: 'DELETE',
+    });
+
+    if (!res.ok) {
+      const error = await res.json();
+      throw new Error(error.message || 'Failed to delete movie');
     }
-  };
+
+    // ✅ Remove the deleted movie from state
+    setMovies(prev => prev.filter(movie => movie._id !== id));
+  } catch (err) {
+    console.error('Error deleting movie:', err);
+    alert('Error deleting movie. Please try again.');
+  }
+};
+
 
   return (
     <>
@@ -292,7 +314,7 @@ export default function MovieDisplay() {
                     <Card.Text className="mb-2"><strong>Cast:</strong></Card.Text>
                     <ListGroup variant="" className="mb-2">
                       {m.cast?.map((actor, i) => (
-                        <ListGroup.Item key={i}>
+                        <ListGroup.Item key={i} className='mb-1'>
                           {actor.imageUrl && (
                             <img src={actor.imageUrl} alt={actor.name} style={{ width: '30px', height: '30px', objectFit: 'cover', marginRight: '10px', borderRadius: '50%' }} />
                           )}
@@ -305,7 +327,7 @@ export default function MovieDisplay() {
                     <Card.Text className="mb-2"><strong>Crew:</strong></Card.Text>
                     <ListGroup variant="">
                       {m.crew?.map((member, i) => (
-                        <ListGroup.Item key={i}>
+                        <ListGroup.Item key={i} className='mb-1'>
                           {member.imageUrl && (
                             <img src={member.imageUrl} alt={member.name} style={{ width: '30px', height: '30px', objectFit: 'cover', marginRight: '10px', borderRadius: '50%' }} />
                           )}
@@ -314,8 +336,9 @@ export default function MovieDisplay() {
                       ))}
                     </ListGroup>
 
-                    <div className="mt-auto d-flex justify-content-between mt-3">
+                    <div className="mt-2 p-1 d-flex justify-content-end">
                       <Button
+                        className='bg-success px-3'
                         size="sm"
                         variant="outline-primary"
                         onClick={() => navigate('/newmovie', { state: { movie: m, edit: true } })}

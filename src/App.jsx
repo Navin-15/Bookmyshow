@@ -165,7 +165,7 @@ function App (){
 
           {/*Adminlogin*/}
 
-            {/* <Route path="/admin" element={<AdminLogin />} />
+            <Route path="/admin" element={<AdminLogin />} />
             <Route path="/dashboard" element={<Adminhome /> } /> 
             <Route path="/newuser" element={<Newuser />} /> 
             <Route path="/manageuser" element={<Manageuser />} />
@@ -174,10 +174,10 @@ function App (){
             <Route path="/newmovie" element={ <Newmovie />} />  
             <Route path="/managemovie" element={ <Managemovie /> } />  
             <Route path="/newbanner" element={<Newbanner />} />  
-            <Route path="/managebanner" element={ <Managebanner /> } />   */}
+            <Route path="/managebanner" element={ <Managebanner /> } />
             {/* <Route path="/managecustomer" element={<ManageCustomer />} /> */}
             
-            <Route path="/admin" element={<AdminLogin />} />
+            {/* <Route path="/admin" element={<AdminLogin />} />
             <Route path="/dashboard" element={<ProtectedRoute> <Adminhome /> </ProtectedRoute>} /> 
             <Route path="/newuser" element={<ProtectedRoute> <Newuser /> </ProtectedRoute>} /> 
             <Route path="/manageuser" element={<ProtectedRoute> <Manageuser /> </ProtectedRoute>} />
@@ -186,7 +186,7 @@ function App (){
             <Route path="/newmovie" element={<ProtectedRoute> <Newmovie /> </ProtectedRoute>} />  
             <Route path="/managemovie" element={<ProtectedRoute> <Managemovie /> </ProtectedRoute>} />  
             <Route path="/newbanner" element={<ProtectedRoute> <Newbanner /> </ProtectedRoute>} />  
-            <Route path="/managebanner" element={<ProtectedRoute> <Managebanner /> </ProtectedRoute>} />  
+            <Route path="/managebanner" element={<ProtectedRoute> <Managebanner /> </ProtectedRoute>} />   */}
             {/* <Route path="/managecustomer" element={<ManageCustomer />} /> */}
 
           {/*Adminlogin*/}

@@ -156,14 +156,14 @@ const Managebanner = () => {
         <Adminsidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar} />
       </div>
 
-        <div className=" text ">
+        <div className=" banner ">
             <h5 className="text-danger fw-bold mt-2">Banner</h5> &nbsp; &nbsp;
             <span className="mt-2">{menuName} </span>
         </div>
     
 
     <div className="manage-banner-container">
-      <h3 className='text-danger'>Manage Banners</h3>
+      <h4 className='text-danger'>Manage Banners</h4>
       <table>
         <thead>
           <tr>
@@ -198,9 +198,9 @@ const Managebanner = () => {
                   {editingId === banner.id ? (
                     <button onClick={() => handleUpdate(banner.id)}>Update</button>
                   ) : (
-                    <button onClick={() => handleEdit(banner.id, banner.name)}>Edit</button>
+                    <button onClick={() => handleEdit(banner.id, banner.name)} className='px-4 bg-success'>Edit</button>
                   )}
-                  <button onClick={() => handleDelete(banner.id)}>Delete</button>
+                  <button onClick={() => handleDelete(banner.id)} className='px-3'>Delete</button>
                 </td>
               </tr>
             ))

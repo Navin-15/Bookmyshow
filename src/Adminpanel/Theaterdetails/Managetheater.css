@@ -73,3 +73,16 @@ background-color: red;
   opacity: 0.6;
   cursor: not-allowed;
 }
+
+
+
+.showtime-badge {
+  display: inline-block;
+  background-color: #f0f0f0;
+  color: #333;
+  border-radius: 12px;
+  padding: 4px 3px;
+  margin: 3px 2px;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}

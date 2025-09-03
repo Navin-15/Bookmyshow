@@ -1091,7 +1091,7 @@ const ManageTheater = () => {
                   }
                 }}>
                 <button className="export-btn">
-                  <img src="https://cdn-icons-png.flaticon.com/512/8242/8242984.png" alt="CSV" className="export-icon" />
+                  <img src="https://cdn-icons-png.flaticon.com/512/8242/8242984.png" alt="CSV" className="export-icon mt-1" />
                 </button>
             </CSVLink>
 
@@ -1135,8 +1135,14 @@ const ManageTheater = () => {
                         {/* <td>{descendingSNo}</td> */}
                         <td>{theater.cinema}</td>
                         <td>{theater.screen}</td>
-                        <td>{theater.showTime}</td>
-                        <td className='d-flex flex-wrap'>
+                        {/* <td className='showgap'>{theater.showTime}</td> */}
+                        <td className='showgap'>
+                          {Array.isArray(theater.showTime) && theater.showTime.map((time, index) => (
+                              <span key={index} className="showtime-badge">{time}</span>
+                              ))}
+                        </td>
+
+                        <td className='d-flex  flex-nowrap justify-content-center'>
                           <button className="edit-btn" onClick={() => navigate("/newtheater", {
                             state: { isEdit: true, entry: theater }
                           })}>✏️</button>

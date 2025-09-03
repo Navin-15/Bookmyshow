@@ -291,12 +291,12 @@ const Newbanner = () => {
         <Adminsidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar} />
       </div>
 
-      <div className="text">
+      <div className="banner">
         <h5 className="text-danger fw-bold mt-2">Banner</h5> &nbsp;&nbsp;
         <span className="mt-2">{menuName}</span>
       </div>
 
-      <div className="course-form-container">
+      <div className="banner-form-container">
         <div className="form-box">
           <h3 className='text-danger'>Add Banner</h3>
 
