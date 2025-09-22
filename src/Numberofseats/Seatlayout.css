@@ -187,6 +187,12 @@
   background-color: red !important;
 }
 
+.seatno.orange-disabled.clickable {
+  pointer-events: auto !important;
+  cursor: pointer;
+}
+
+
 /* @media (min-width: 320px) and (max-width: 767.98px){
 .navbar-toggler{
         

@@ -115,6 +115,7 @@ import { MovieProvider } from './Adminpanel/moviemanager/MovieContext.jsx';
 import { BannerProvider } from './Adminpanel/Banner/BannerContext.jsx';
 import Newbanner from './Adminpanel/Banner/Newbanner.jsx';
 import Managebanner from './Adminpanel/Banner/Managebanner.jsx';
+import CosmosA from './Adminpanel/TheaterSeats/cosmos/CosmosA.jsx';
 // import ManageCustomer from './Adminpanel/ManageCustomer.jsx';
 
 import ProtectedRoute from './Adminpanel/ProtectedRoute'; // import at top
@@ -278,7 +279,19 @@ function App (){
 
             <Route path="/booking-summary" element={<BookingSummaryPage />} />
 
-            {/* <Route path="/seatlayout" element={<HitCosmoscinema />} /> */}
+              {/* Admin Theater Blocking section */}
+
+              <Route path="/theater-seats/:theater/:screen" element={<CosmosA/>} />
+
+
+
+              {/* Admin Theater Blocking section */}
+
+
+
+
+
+
             
             {/* events */}
 

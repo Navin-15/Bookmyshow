@@ -1,208 +1,199 @@
-// import React from 'react'
-// import '../AdminSide/Adminsidebar.css'
-// import {BsCart3, BsGrid1X2Fill, BsFillArchiveFill, BsFillGrid3X3GapFill, BsPeopleFill, 
-//   BsListCheck, BsMenuButtonWideFill, BsFillGearFill}
-//  from 'react-icons/bs'
-//  import { SiBookmyshow } from "react-icons/si";
-//  import { useNavigate } from 'react-router-dom';
- 
+// import React, { useState } from "react";
+// import './adminsidebar.css';
+// import {
+//   FaHome,
+//   FaThList,
+//   FaBoxOpen,
+//   FaUser,
+//   FaImage,
+//   FaComment,
+//   FaShoppingCart,
+//   FaCog,
+//   FaChevronDown,
+//   FaChevronRight,
+// } from "react-icons/fa";
+// import { useNavigate } from "react-router-dom";
+// import adminlogo from '../../../images/BookMyShow.png';
 
-// function Adminsidebar({openSidebarToggle, OpenSidebar}) {
-//     const navigate = useNavigate();
-//   return (
-//     <aside id='sidebar' className={openSidebarToggle ? "sidebar-responsive" : ""}>
-//             <div className="sidebar-title">
-//                 <div className="sidebar-brand">
-                   
-//                     <SiBookmyshow className='icon_header'/> BookMyShow
-                    
-//                 </div>
-//                 <span className='icon close_icon' onClick={OpenSidebar}>X</span>
-//             </div>
-    
-//             <ul className='sidebar-list'>
-//                 <li className='sidebar-list-item text-light'onClick={() => navigate('/dashboard')} >
-//                     <p>
-//                       <BsGrid1X2Fill className='icon'/> Dashboard
-//                     </p>
-//                 </li>
-//                 <li className='sidebar-list-item theaterdetails text-light' onClick={() => navigate('')}>
-//                     <p>
-//                       <BsFillArchiveFill className='icon'/> User
-//                     </p>
-//                         <li className=' theaterdetailssublist' >
-//                           <p className='anc'>
-//                              New User  
-//                           </p>
-//                         </li> 
-//                         <li className=' theaterdetailssublist' >
-//                           <p className='anc'>
-//                              Manage User
-//                           </p>
-//                         </li> 
+// //new
+// import { useAuth } from '../AuthContext';
 
-//                 </li>
-//                 <li className='sidebar-list-item theaterdetails text-light' onClick={() => navigate('')}>
-//                     <p>
-//                       <BsFillGrid3X3GapFill className='icon'/> Theater
-//                     </p>
-//                         <li className=' theaterdetailssublist' >
-//                           <p className='anc'>
-//                              New Theater
-//                           </p>
-//                         </li>
-//                         <li className=' theaterdetailssublist' onClick={() => navigate('')}>
-//                           <p className='anc' >
-//                              Manage Theater
-//                           </p>
-//                         </li>
-                        
-//                 </li>
-//                 <li className='sidebar-list-item theaterdetails  text-light' onClick={() => navigate('')}>
-//                     <p>
-//                       <BsPeopleFill className='icon'/> Movie
-//                     </p>
-//                       <li className=' theaterdetailssublist' >
-//                           <p className='anc'>
-//                              New Movie
-//                           </p>
-//                       </li>
-//                       <li className=' theaterdetailssublist' onClick={() => navigate('')}>
-//                           <p className='anc' >
-//                              Manage Movie
-//                           </p>
-//                       </li>
-//                 </li>
-                
-//             </ul>
-//         </aside>
-//   )
-// }
-
-// export default Adminsidebar
-
-//==========================================================
-
-// import React from 'react';
-// import '../AdminSide/Adminsidebar.css';
-// import { BsGrid1X2Fill, BsFillArchiveFill, BsFillBookFill, BsPersonPlusFill, BsClipboardData, BsCheck2Square, BsCurrencyRupee, BsTrophyFill, BsPeopleFill, BsBarChartFill } from 'react-icons/bs';
-// import { useNavigate } from 'react-router-dom';
-
-// function Adminsidebar({ openSidebarToggle, OpenSidebar }) {
+// const AdminSidebar = () => {
+//   const [expandedMenu, setExpandedMenu] = useState(null);
 //   const navigate = useNavigate();
 
+//   //new 
+//   const { user } = useAuth();
+
+//   const handleMenuToggle = (menu) => {
+//     setExpandedMenu(expandedMenu === menu ? null : menu);
+//   };
+ 
+
 //   return (
-//     <aside id='sidebar' className={openSidebarToggle ? 'sidebar-responsive' : ''}>
 
-    
-
-//       <div className='sidebar-title' onClick={() => navigate('/dashboard')} >
-//         <div className='sidebar-brand'>
-//           <BsGrid1X2Fill className='icon_header' /> Dashboard
-//         </div>
-//         <span className='icon close_icon' onClick={OpenSidebar}>X</span>
+//     <div className="Adminslider">
+//       <div className="Adminlogodiv">
+//         <img src={adminlogo} className="adminlogo" alt="Admin Logo" />
 //       </div>
 
-//       <ul className='sidebar-list'>
-
-//         {/* User */}
-//         <li className='sidebar-list-item'>
-//           <div className='menu-group'>
-//             <p><BsFillArchiveFill className='icon' /> User</p>
-//               <ul className='submenu'>
-//                 <li className='sidebar-sub-item' onClick={() => navigate('/newuser')}>New User</li>
-//                 <li className='sidebar-sub-item' onClick={() => navigate('/manageuser')}>Manage User</li>
-//               </ul>
-//           </div>
+//       <ul className="adminUl">
+//         <li style={menuItemStyle} onClick={() => navigate("/dashboard")}>
+//           <FaHome style={iconStyle} />
+//           <span>Dashboard</span>
 //         </li>
 
-//         {/* Course */}
-//         <li className='sidebar-list-item'>
-//           <div className='menu-group'>
-//             <p><BsFillArchiveFill className='icon' /> Theater</p>
-//               <ul className='submenu'>
-//                 <li className='sidebar-sub-item'>New Theater</li>
-//                 <li className='sidebar-sub-item'>Manage Theater</li>
-//               </ul>
-//           </div>
+//            {/* User */}
+          
+//         {user?.permissions?.user && (
+//         <>
+//           <li style={menuItemStyle} onClick={() => handleMenuToggle("user")}>
+//               <FaUser style={iconStyle} />
+//           <span>
+//             User {" "}
+//             {expandedMenu === "user" ? (<FaChevronDown className="chevrondown" />) : (<FaChevronRight className="chevronright" />)}
+//           </span>
+//           </li>
+//           {/* Submenu for User*/}
+//           {expandedMenu === "user" && (
+//           <>
+//             <li style={submenuItemStyle} onClick={() => navigate("/newuser", { state: { menu: "New User" } })}>
+//               New User
+//             </li>
+//             <li style={submenuItemStyle} onClick={() => navigate("/manageuser", { state: { menu: "Manage User" } })}>
+//               Manage User
+//             </li>
+//           </> 
+//           )}
+//         </>
+//       )}  
+
+//       {/* Theater Menu with Toggle */}
+//       {user?.permissions?.theater && (
+//           <>  
+//         <li style={menuItemStyle} onClick={() => handleMenuToggle("theater")}>
+//           <FaThList style={iconStyle} />
+//           <span>
+//             Theater {" "}
+//             {expandedMenu === "theater" ? (<FaChevronDown className="chevrondown" />) : (<FaChevronRight className="chevronright" />)}
+//           </span>
 //         </li>
+//         {/* Submenu for Theater*/}
+//         {expandedMenu === "theater" && (
+//           <>
+//             <li style={submenuItemStyle} onClick={() => navigate("/newtheater", { state: { menu: "New Theater" } })}>
+//               New Theater
+//             </li>
+//             <li style={submenuItemStyle} onClick={() => navigate("/managetheater", { state: { menu: "Manage Theater" } })}>
+//               Manage Theater
+//             </li>
+//           </>
+//         )}
+//       </>
+//       )}
 
-//         {/* Enquiry */}
-//         <li className='sidebar-list-item'>
-//           <div className='menu-group'>
-//             <p><BsFillArchiveFill className='icon' /> Movie</p>
-//               <ul className='submenu'>
-//                 <li className='sidebar-sub-item'>New Movie</li>
-//                 <li className='sidebar-sub-item'>Manage Movie</li>
-//               </ul>
-//           </div>
+//         {/* Movie */}
+
+//       {user?.permissions?.movie && (
+//       <> 
+//         <li style={menuItemStyle}onClick={() => handleMenuToggle("movie")}>
+//           <FaBoxOpen style={iconStyle} />
+//           <span>
+//             Movie {" "}
+//             {expandedMenu === "movie" ? (<FaChevronDown className="chevrondown" />) : (<FaChevronRight className="chevronright" />)}
+//           </span>
 //         </li>
+//         {/* Submenu for Movie*/}
+//         {expandedMenu === "movie" && (
+//           <>
+//             <li style={submenuItemStyle} onClick={() => navigate("/newmovie", { state: { menu: "New Movie" } })}>
+//               New Movie
+//             </li>
+//             <li style={submenuItemStyle} onClick={() => navigate("/managemovie", { state: { menu: "Manage Movie" } })}>
+//               Manage Movie
+//             </li>
+//           </>
+//         )}
+//       </>
+//       )}
 
-//         {/* Enrollment */}
-//         <li className='sidebar-list-item'>
-//           <div className='menu-group'>
-//             <p><BsFillArchiveFill className='icon' /> Seats</p>
-//               <ul className='submenu'>
-//                 <li className='sidebar-sub-item'>New Seats</li>
-//                 <li className='sidebar-sub-item'>Manage Seats</li>
-//               </ul>
-//           </div>
+//         {/* Banner */}
+
+//       {user?.permissions?.banner && (
+//       <> 
+//         <li style={menuItemStyle} onClick={() => handleMenuToggle("banner")}>
+//           <FaImage style={iconStyle} />
+//           <span>
+//             Banner {" "}
+//             {expandedMenu === "banner" ? (<FaChevronDown className="chevrondown" />) : (<FaChevronRight className="chevronright" />)}
+//           </span>
 //         </li>
+//         {/* Submenu for Banner*/}
+//         {expandedMenu === "banner" && (
+//           <>
+//             <li style={submenuItemStyle} onClick={() => navigate("/newbanner", { state: { menu: "New Banner" } })}>
+//               New Banner
+//             </li>
+//             <li style={submenuItemStyle} onClick={() => navigate("/managebanner", { state: { menu: "Manage Banner" } })}>
+//               Manage Banner
+//             </li>
+//           </>
+//         )}
+//       </>
+//       )}
 
-//         {/* Attendance */}
-//         <li className='sidebar-list-item'>
-//           <div className='menu-group'>
-//             <p><BsFillArchiveFill className='icon' /> Banner</p>
-//               <ul className='submenu'>
-//                 <li className='sidebar-sub-item'>New Banner</li>
-//                 <li className='sidebar-sub-item'>Manage Banner</li>
-//               </ul>
-//           </div>
+//         {/* Customer */}
+
+//       {user?.permissions?.customer && (
+//       <>
+
+//         <li style={menuItemStyle} onClick={() => handleMenuToggle("customer")}>
+//           <FaUser style={iconStyle} />
+//           <span>
+//             Customer {" "}
+//             {expandedMenu === "customer" ? (<FaChevronDown className="chevrondown" />) : (<FaChevronRight className="chevronright" />)}
+//           </span>
 //         </li>
-
-//         {/* Payment */}
-//         <li className='sidebar-list-item'>
-//           <div className='menu-group'>
-//             <p><BsFillArchiveFill className='icon' /> Bookings</p>
-//               <ul className='submenu'>
-//                 <li className='sidebar-sub-item'>New Bookings</li>
-//                 <li className='sidebar-sub-item'>Manage Bookings</li>
-//               </ul>
-//           </div>
-//         </li>
-
-//         {/* Placement */}
-//         {/* <li className='sidebar-list-item'>
-//           <p><BsTrophyFill className='icon' /> Placement</p>
-//           <ul>
-//             <li className='sidebar-sub-item'>Add Placement</li>
-//             <li className='sidebar-sub-item'>Manage Placement</li>
-//           </ul>
-//         </li> */}
-
-//         {/* Staff */}
-//         {/* <li className='sidebar-list-item'>
-//           <p><BsPeopleFill className='icon' /> Staff</p>
-//           <ul>
-//             <li className='sidebar-sub-item'>New Staff</li>
-//             <li className='sidebar-sub-item'>Manage Staff</li>
-//           </ul>
-//         </li> */}
-
-//         {/* Report */}
-//         {/* <li className='sidebar-list-item'>
-//           <p><BsBarChartFill className='icon' /> Report</p>
-//           <ul>
-//             <li className='sidebar-sub-item'>Manage Report</li>
-//           </ul>
-//         </li> */}
+//         {/* Submenu for Cutomer*/}
+//         {expandedMenu === "customer" && (
+//           <>
+//            <li style={submenuItemStyle} onClick={() => navigate("/managecustomer")}>
+//             Manage Customer
+//           </li></>
+//         )}
+//       </>
+//       )}
 
 //       </ul>
-//     </aside>
-//   );
-// }
+//     </div>
 
-// export default Adminsidebar;
+//   );
+// };
+
+// const menuItemStyle = {
+//   padding: "12px 20px",
+//   color: "#fff",
+//   cursor: "pointer",
+//   display: "flex",
+//   alignItems: "center",
+//   marginLeft: "20px",
+// };
+
+// const submenuItemStyle = {
+//   padding: "8px 40px",
+//   cursor: "pointer",
+//   color: "#fff",
+//   fontSize: "14px",
+//   marginLeft: "40px",
+// };
+
+// const iconStyle = {
+//   marginRight: "10px",
+// };
+
+// export default AdminSidebar;
+
+//working on corrections
 
 import React, { useState } from "react";
 import './adminsidebar.css';
@@ -217,165 +208,177 @@ import {
   FaCog,
   FaChevronDown,
   FaChevronRight,
+  FaChair
 } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import adminlogo from '../../../images/BookMyShow.png';
-
-//new
 import { useAuth } from '../AuthContext';
 
 const AdminSidebar = () => {
   const [expandedMenu, setExpandedMenu] = useState(null);
+  const [expandedSubMenu, setExpandedSubMenu] = useState(null);
   const navigate = useNavigate();
 
-  //new 
   const { user } = useAuth();
 
   const handleMenuToggle = (menu) => {
-    setExpandedMenu(expandedMenu === menu ? null : menu);
+    setExpandedMenu(prev => (prev === menu ? null : menu));
+    setExpandedSubMenu(null); // Collapse submenus when switching top-level menu
   };
- 
+
+  const handleSubMenuToggle = (submenu) => {
+    setExpandedSubMenu(prev => (prev === submenu ? null : submenu));
+  };
+  
+  // Screens Submenu Renderer
+const renderScreens = (theater) => {
+  const screens = ['A', 'B', 'C', 'D', 'E'];
+  return screens.map((screen) => (
+    <li
+      key={`${theater}-screen-${screen}`}
+      style={nestedSubmenuStyle}
+      onClick={() => navigate(`/theater-seats/${theater}/screen-${screen}`)}
+    >
+      Screen-{screen}
+    </li>
+  ));
+};
 
   return (
-
     <div className="Adminslider">
       <div className="Adminlogodiv">
         <img src={adminlogo} className="adminlogo" alt="Admin Logo" />
       </div>
 
       <ul className="adminUl">
+        {/* Dashboard */}
         <li style={menuItemStyle} onClick={() => navigate("/dashboard")}>
           <FaHome style={iconStyle} />
           <span>Dashboard</span>
         </li>
 
-           {/* User */}
-          
+        {/* User */}
         {user?.permissions?.user && (
-        <>
-          <li style={menuItemStyle} onClick={() => handleMenuToggle("user")}>
+          <>
+            <li style={menuItemStyle} onClick={() => handleMenuToggle("user")}>
               <FaUser style={iconStyle} />
-          <span>
-            User {" "}
-            {expandedMenu === "user" ? (<FaChevronDown className="chevrondown" />) : (<FaChevronRight className="chevronright" />)}
-          </span>
-          </li>
-          {/* Submenu for User*/}
-          {expandedMenu === "user" && (
-          <>
-            <li style={submenuItemStyle} onClick={() => navigate("/newuser", { state: { menu: "New User" } })}>
-              New User
+              <span>User {expandedMenu === "user" ? <FaChevronDown /> : <FaChevronRight />}</span>
             </li>
-            <li style={submenuItemStyle} onClick={() => navigate("/manageuser", { state: { menu: "Manage User" } })}>
-              Manage User
-            </li>
-          </> 
-          )}
-        </>
-      )}  
-
-      {/* Theater Menu with Toggle */}
-      {user?.permissions?.theater && (
-          <>  
-        <li style={menuItemStyle} onClick={() => handleMenuToggle("theater")}>
-          <FaThList style={iconStyle} />
-          <span>
-            Theater {" "}
-            {expandedMenu === "theater" ? (<FaChevronDown className="chevrondown" />) : (<FaChevronRight className="chevronright" />)}
-          </span>
-        </li>
-        {/* Submenu for Theater*/}
-        {expandedMenu === "theater" && (
-          <>
-            <li style={submenuItemStyle} onClick={() => navigate("/newtheater", { state: { menu: "New Theater" } })}>
-              New Theater
-            </li>
-            <li style={submenuItemStyle} onClick={() => navigate("/managetheater", { state: { menu: "Manage Theater" } })}>
-              Manage Theater
-            </li>
+            {expandedMenu === "user" && (
+              <>
+                <li style={submenuItemStyle} onClick={() => navigate("/newuser")}>New User</li>
+                <li style={submenuItemStyle} onClick={() => navigate("/manageuser")}>Manage User</li>
+              </>
+            )}
           </>
         )}
-      </>
-      )}
+
+        {/* Theater */}
+        {user?.permissions?.theater && (
+          <>
+            <li style={menuItemStyle} onClick={() => handleMenuToggle("theater")}>
+              <FaThList style={iconStyle} />
+              <span>Theater {expandedMenu === "theater" ? <FaChevronDown /> : <FaChevronRight />}</span>
+            </li>
+            {expandedMenu === "theater" && (
+              <>
+                <li style={submenuItemStyle} onClick={() => navigate("/newtheater")}>New Theater</li>
+                <li style={submenuItemStyle} onClick={() => navigate("/managetheater")}>Manage Theater</li>
+              </>
+            )}
+          </>
+        )}
 
         {/* Movie */}
-
-      {user?.permissions?.movie && (
-      <> 
-        <li style={menuItemStyle}onClick={() => handleMenuToggle("movie")}>
-          <FaBoxOpen style={iconStyle} />
-          <span>
-            Movie {" "}
-            {expandedMenu === "movie" ? (<FaChevronDown className="chevrondown" />) : (<FaChevronRight className="chevronright" />)}
-          </span>
-        </li>
-        {/* Submenu for Movie*/}
-        {expandedMenu === "movie" && (
+        {user?.permissions?.movie && (
           <>
-            <li style={submenuItemStyle} onClick={() => navigate("/newmovie", { state: { menu: "New Movie" } })}>
-              New Movie
+            <li style={menuItemStyle} onClick={() => handleMenuToggle("movie")}>
+              <FaBoxOpen style={iconStyle} />
+              <span>Movie {expandedMenu === "movie" ? <FaChevronDown /> : <FaChevronRight />}</span>
             </li>
-            <li style={submenuItemStyle} onClick={() => navigate("/managemovie", { state: { menu: "Manage Movie" } })}>
-              Manage Movie
-            </li>
+            {expandedMenu === "movie" && (
+              <>
+                <li style={submenuItemStyle} onClick={() => navigate("/newmovie")}>New Movie</li>
+                <li style={submenuItemStyle} onClick={() => navigate("/managemovie")}>Manage Movie</li>
+              </>
+            )}
           </>
         )}
-      </>
-      )}
 
         {/* Banner */}
-
-      {user?.permissions?.banner && (
-      <> 
-        <li style={menuItemStyle} onClick={() => handleMenuToggle("banner")}>
-          <FaImage style={iconStyle} />
-          <span>
-            Banner {" "}
-            {expandedMenu === "banner" ? (<FaChevronDown className="chevrondown" />) : (<FaChevronRight className="chevronright" />)}
-          </span>
-        </li>
-        {/* Submenu for Banner*/}
-        {expandedMenu === "banner" && (
+        {user?.permissions?.banner && (
           <>
-            <li style={submenuItemStyle} onClick={() => navigate("/newbanner", { state: { menu: "New Banner" } })}>
-              New Banner
+            <li style={menuItemStyle} onClick={() => handleMenuToggle("banner")}>
+              <FaImage style={iconStyle} />
+              <span>Banner {expandedMenu === "banner" ? <FaChevronDown /> : <FaChevronRight />}</span>
             </li>
-            <li style={submenuItemStyle} onClick={() => navigate("/managebanner", { state: { menu: "Manage Banner" } })}>
-              Manage Banner
-            </li>
+            {expandedMenu === "banner" && (
+              <>
+                <li style={submenuItemStyle} onClick={() => navigate("/newbanner")}>New Banner</li>
+                <li style={submenuItemStyle} onClick={() => navigate("/managebanner")}>Manage Banner</li>
+              </>
+            )}
           </>
         )}
-      </>
-      )}
 
         {/* Customer */}
-
-      {user?.permissions?.customer && (
-      <>
-
-        <li style={menuItemStyle} onClick={() => handleMenuToggle("customer")}>
-          <FaUser style={iconStyle} />
-          <span>
-            Customer {" "}
-            {expandedMenu === "customer" ? (<FaChevronDown className="chevrondown" />) : (<FaChevronRight className="chevronright" />)}
-          </span>
-        </li>
-        {/* Submenu for Cutomer*/}
-        {expandedMenu === "customer" && (
+        {user?.permissions?.customer && (
           <>
-           <li style={submenuItemStyle} onClick={() => navigate("/managecustomer")}>
-            Manage Customer
-          </li></>
+            <li style={menuItemStyle} onClick={() => handleMenuToggle("customer")}>
+              <FaUser style={iconStyle} />
+              <span>Customer {expandedMenu === "customer" ? <FaChevronDown /> : <FaChevronRight />}</span>
+            </li>
+            {expandedMenu === "customer" && (
+              <li style={submenuItemStyle} onClick={() => navigate("/managecustomer")}>Manage Customer</li>
+            )}
+          </>
         )}
-      </>
-      )}
+
+        {/* NEW: Theater Seats */}
+        {user?.permissions?.theaterseats && (
+          <>
+            <li style={menuItemStyle} onClick={() => handleMenuToggle("theaterseats")}>
+              <FaChair style={iconStyle} />
+              <span>Theater Seats {expandedMenu === "theaterseats" ? <FaChevronDown /> : <FaChevronRight />}</span>
+            </li>
+            {expandedMenu === "theaterseats" && (
+              <>
+                {/* Cosmos Cinemas */}
+                <li style={submenuItemStyle} onClick={() => handleSubMenuToggle("cosmos")}>
+                  Cosmos Cinemas {expandedSubMenu === "cosmos" ? <FaChevronDown /> : <FaChevronRight />}
+                </li>
+                {expandedSubMenu === "cosmos" && renderScreens("cosmos-cinemas")}
+
+                {/* Karpagam Theaters */}
+                <li style={submenuItemStyle} onClick={() => handleSubMenuToggle("karpagam")}>
+                  Karpagam Theaters {expandedSubMenu === "karpagam" ? <FaChevronDown /> : <FaChevronRight />}
+                </li>
+                {expandedSubMenu === "karpagam" && renderScreens("karpagam")}
+
+                {/* Murugan Cinemas */}
+                <li style={submenuItemStyle} onClick={() => handleSubMenuToggle("murugan")}>
+                  Murugan Cinemas {expandedSubMenu === "murugan" ? <FaChevronDown /> : <FaChevronRight />}
+                </li>
+                {expandedSubMenu === "murugan" && renderScreens("murugan")}
+
+                {/* Sri Sakthi Kalpana Cinemas */}
+                <li style={submenuItemStyle} onClick={() => handleSubMenuToggle("srikalpana")}>
+                  Sri Sakthi Kalpana Cinemas {expandedSubMenu === "srikalpana" ? <FaChevronDown /> : <FaChevronRight />}
+                </li>
+                {expandedSubMenu === "srikalpana" && renderScreens("srikalpana")}
+              </>
+            )}
+          </>
+        )}
 
       </ul>
     </div>
-
   );
 };
 
+
+
+// Styles
 const menuItemStyle = {
   padding: "12px 20px",
   color: "#fff",
@@ -391,6 +394,13 @@ const submenuItemStyle = {
   color: "#fff",
   fontSize: "14px",
   marginLeft: "40px",
+};
+
+const nestedSubmenuStyle = {
+  padding: "6px 60px",
+  cursor: "pointer",
+  color: "#ddd",
+  fontSize: "13px",
 };
 
 const iconStyle = {

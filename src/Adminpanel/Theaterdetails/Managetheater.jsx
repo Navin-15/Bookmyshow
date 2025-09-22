@@ -1107,8 +1107,8 @@ const ManageTheater = () => {
                 <tr>
                   <th><input type="checkbox" checked={selectAll} onChange={handleSelectAll} /></th>
                   {/* <th>S.No</th> */}
-                  <th>Cinema</th>
-                  <th>Screen</th>
+                  <th>Theater</th>
+                  <th className='screen'>Screen</th>
                   <th>Show Time</th>
                   <th>Action</th>
                 </tr>
@@ -1134,7 +1134,7 @@ const ManageTheater = () => {
                         </td>
                         {/* <td>{descendingSNo}</td> */}
                         <td>{theater.cinema}</td>
-                        <td>{theater.screen}</td>
+                        <td className='my-auto'>{theater.screen}</td>
                         {/* <td className='showgap'>{theater.showTime}</td> */}
                         <td className='showgap'>
                           {Array.isArray(theater.showTime) && theater.showTime.map((time, index) => (
@@ -1142,7 +1142,7 @@ const ManageTheater = () => {
                               ))}
                         </td>
 
-                        <td className='d-flex  flex-nowrap justify-content-center'>
+                        <td className=''>
                           <button className="edit-btn" onClick={() => navigate("/newtheater", {
                             state: { isEdit: true, entry: theater }
                           })}>✏️</button>

@@ -197,12 +197,12 @@ function Adminhome() {
       <div className="admin-content flex-grow-1">
         <Adminheader />
       
-        <main className="main-container p-5">
+        <main className="main-container p-5 bg-info">
           <div className="main-title mb-4">
             <h3 className="fw-bold text-dark">Dashboard</h3>
           </div>
 
-          <div className="dashboard-boxes row g-4 mb-4">
+          <div className="dashboard-boxes row g-4 mb-4 container">
             <div className="col-md-3">
               <div className="card h-100 text-white bg-primary shadow">
                 <div className="card-body d-flex justify-content-between align-items-center">
@@ -244,7 +244,7 @@ function Adminhome() {
             </div>
           </div>
 
-          <div className="row g-4">
+          <div className="row g-4 dashboard-bars ">
             <div className="col-lg-6">
               <div className="card shadow">
                 <div className="card-header fw-bold">Bar Chart</div>

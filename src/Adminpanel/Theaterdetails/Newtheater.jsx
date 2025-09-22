@@ -539,38 +539,18 @@ export default function NewTheater() {
       <div className="container mt-5 newtheaterformparent">
         <h3 className='text-danger'>{isEdit ? "Edit Theater Entry" : "Create New Theater"}</h3>
         <form onSubmit={handleSubmit} className='for'>
-
-          {/* Cinema Select */}
-          {/* <div className="mb-3">
+          <div className="mb-3">
             <label>Theater Name</label>
-            <select
+            <input
+              type="text"
               value={cinema}
               onChange={(e) => setCinema(e.target.value)}
-              className={`form-control select-with-icon ${errors.cinema ? 'is-invalid' : ''}`}
-            >
-              <option value="">Select Theater</option>
-              <option value="Cosmo Cinemas PEELAMEDU AC 4K:Coimbatore">Cosmo Cinemas PEELAMEDU AC:Coimbatore</option>
-              <option value="Karpagam Theatres Theatres 4K Dolby Atmos:Coimbatore">Karpagam Theatres Theatres 4K Dolby Atmos:Coimbatore</option>
-              <option value="Murugan CinemasCinemas A/C 4K Atmos:Thudiyalur ">Murugan CinemasCinemas A/C 4K Atmos:Thudiyalur </option>
-              <option value="Sri Sakthi Kalpana Cinemas:Kavundampalayam">Sri Sakthi Kalpana Cinemas:Kavundampalayam</option>
-              <option value="Sathyam Cinemas">Sathyam Cinemas</option>
-            </select>
+              className={`form-control ${errors.cinema ? 'is-invalid' : ''}`}
+              placeholder="Enter Theater Name"
+            />
             {errors.cinema && <div className="invalid-feedback">{errors.cinema}</div>}
-          </div> */}
-
-          <div className="mb-3">
-  <label>Theater Name</label>
-  <input
-    type="text"
-    value={cinema}
-    onChange={(e) => setCinema(e.target.value)}
-    className={`form-control ${errors.cinema ? 'is-invalid' : ''}`}
-    placeholder="Enter Theater Name"
-  />
-  {errors.cinema && <div className="invalid-feedback">{errors.cinema}</div>}
-</div>
-
-
+          </div>
+ 
           {/* Screen Select */}
           <div className="mb-3">
             <label>Screen Name</label>
@@ -591,7 +571,7 @@ export default function NewTheater() {
 
           {/* Show Time Select */}
          <div className="mb-3">
-              <label>Show Timings</label>
+            <label>Show Timings</label>
             <Select
             isMulti
             name="showTimes"
