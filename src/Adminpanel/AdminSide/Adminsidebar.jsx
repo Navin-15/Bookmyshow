@@ -226,23 +226,24 @@ const AdminSidebar = () => {
     setExpandedSubMenu(null); // Collapse submenus when switching top-level menu
   };
 
-  const handleSubMenuToggle = (submenu) => {
-    setExpandedSubMenu(prev => (prev === submenu ? null : submenu));
-  };
+  // const handleSubMenuToggle = (submenu) => {
+  //   setExpandedSubMenu(prev => (prev === submenu ? null : submenu));
+  // };
   
-  // Screens Submenu Renderer
-const renderScreens = (theater) => {
-  const screens = ['A', 'B', 'C', 'D', 'E'];
-  return screens.map((screen) => (
-    <li
-      key={`${theater}-screen-${screen}`}
-      style={nestedSubmenuStyle}
-      onClick={() => navigate(`/theater-seats/${theater}/screen-${screen}`)}
-    >
-      Screen-{screen}
-    </li>
-  ));
-};
+// Screens Submenu Renderer
+
+// const renderScreens = (theater) => {
+//   const screens = ['A', 'B', 'C', 'D', 'E'];
+//   return screens.map((screen) => (
+//     <li
+//       key={`${theater}-screen-${screen}`}
+//       style={nestedSubmenuStyle}
+//       onClick={() => navigate(`/theater-seats/${theater}/screen-${screen}`)}
+//     >
+//       Screen-{screen}
+//     </li>
+//   ));
+// };
 
   return (
     <div className="Adminslider">
@@ -344,28 +345,29 @@ const renderScreens = (theater) => {
             {expandedMenu === "theaterseats" && (
               <>
                 {/* Cosmos Cinemas */}
-                <li style={submenuItemStyle} onClick={() => handleSubMenuToggle("cosmos")}>
+                <li style={submenuItemStyle}onClick={() =>  navigate(`/theater-seats`)}>
                   Cosmos Cinemas {expandedSubMenu === "cosmos" ? <FaChevronDown /> : <FaChevronRight />}
                 </li>
                 {expandedSubMenu === "cosmos" && renderScreens("cosmos-cinemas")}
 
                 {/* Karpagam Theaters */}
-                <li style={submenuItemStyle} onClick={() => handleSubMenuToggle("karpagam")}>
+                {/* <li style={submenuItemStyle} onClick={() => handleSubMenuToggle("karpagam")}>
                   Karpagam Theaters {expandedSubMenu === "karpagam" ? <FaChevronDown /> : <FaChevronRight />}
                 </li>
-                {expandedSubMenu === "karpagam" && renderScreens("karpagam")}
+                {expandedSubMenu === "karpagam" && renderScreens("karpagam")} */}
 
                 {/* Murugan Cinemas */}
-                <li style={submenuItemStyle} onClick={() => handleSubMenuToggle("murugan")}>
+                {/* <li style={submenuItemStyle} onClick={() => handleSubMenuToggle("murugan")}>
                   Murugan Cinemas {expandedSubMenu === "murugan" ? <FaChevronDown /> : <FaChevronRight />}
                 </li>
-                {expandedSubMenu === "murugan" && renderScreens("murugan")}
+                {expandedSubMenu === "murugan" && renderScreens("murugan")} */}
 
                 {/* Sri Sakthi Kalpana Cinemas */}
-                <li style={submenuItemStyle} onClick={() => handleSubMenuToggle("srikalpana")}>
+                {/* <li style={submenuItemStyle} onClick={() => handleSubMenuToggle("srikalpana")}>
                   Sri Sakthi Kalpana Cinemas {expandedSubMenu === "srikalpana" ? <FaChevronDown /> : <FaChevronRight />}
                 </li>
-                {expandedSubMenu === "srikalpana" && renderScreens("srikalpana")}
+                {expandedSubMenu === "srikalpana" && renderScreens("srikalpana")} */}
+                
               </>
             )}
           </>

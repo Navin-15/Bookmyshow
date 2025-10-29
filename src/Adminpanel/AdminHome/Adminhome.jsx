@@ -197,7 +197,7 @@ function Adminhome() {
       <div className="admin-content flex-grow-1">
         <Adminheader />
       
-        <main className="main-container p-5 bg-info">
+        <main className="main-container p-5">
           <div className="main-title mb-4">
             <h3 className="fw-bold text-dark">Dashboard</h3>
           </div>

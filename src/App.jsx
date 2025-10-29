@@ -252,36 +252,37 @@ function App (){
             {/* seatlayout */}
             
           
-            <Route path='retro/buytickets/Cosmoscinemaseatlayout' element={<RetroCosmoscinema/>} />
-            <Route path='retro/buytickets/Karpagamcinemaseatlayout' element={<RetroKarpagamcinema/>} />
-            <Route path='retro/buytickets/Murugancinemaseatlayout' element={<RetroMurugancinema/>} />
-            <Route path='retro/buytickets/Kalpanacinemaseatlayout' element={<RetroKalpanacinema/>} />
+            <Route path='retro/buytickets/Cosmoscinemasseatlayout' element={<RetroCosmoscinema/>} />
+            <Route path='retro/buytickets/Karpagamcinemasseatlayout' element={<RetroKarpagamcinema/>} />
+            <Route path='retro/buytickets/Murugancinemasseatlayout' element={<RetroMurugancinema/>} />
+            <Route path='retro/buytickets/srisakthikalpanacinemasseatlayout' element={<RetroKalpanacinema/>} />
 
-            <Route path='touristfamily/buytickets/Cosmoscinemaseatlayout' element={<TouristCosmoscinema/>} />
-            <Route path='touristfamily/buytickets/Karpagamcinemaseatlayout' element={<TouristKarpagamcinema/>} />
-            <Route path='touristfamily/buytickets/Murugancinemaseatlayout' element={<TouristMurugancinema/>} />
-            <Route path='touristfamily/buytickets/Kalpanacinemaseatlayout' element={<TouristKalpanacinema/>} />
+            <Route path='touristfamily/buytickets/Cosmoscinemasseatlayout' element={<TouristCosmoscinema/>} />
+            <Route path='touristfamily/buytickets/Karpagamcinemasseatlayout' element={<TouristKarpagamcinema/>} />
+            <Route path='touristfamily/buytickets/Murugancinemasseatlayout' element={<TouristMurugancinema/>} />
+            <Route path='touristfamily/buytickets/srisakthikalpanacinemasseatlayout' element={<TouristKalpanacinema/>} />
 
-            <Route path='hit/buytickets/Cosmoscinemaseatlayout' element={<HitCosmoscinema/>} />
-            <Route path='hit/buytickets/Karpagamcinemaseatlayout' element={<HitKarpagamcinema/>} />
-            <Route path='hit/buytickets/Murugancinemaseatlayout' element={<HitMurugancinema/>} />
-            <Route path='hit/buytickets/Kalpanacinemaseatlayout' element={<HitKalpanacinema/>} />
+            <Route path='hit/buytickets/Cosmoscinemasseatlayout' element={<HitCosmoscinema/>} />
+            <Route path='hit/buytickets/Karpagamcinemasseatlayout' element={<HitKarpagamcinema/>} />
+            <Route path='hit/buytickets/Murugancinemasseatlayout' element={<HitMurugancinema/>} />
+            <Route path='hit/buytickets/srisakthikalpanacinemasseatlayout' element={<HitKalpanacinema/>} />
 
-            <Route path='thunderbolts/buytickets/Cosmoscinemaseatlayout' element={<ThunderboltsCosmoscinema/>} />
-            <Route path='thunderbolts/buytickets/Karpagamcinemaseatlayout' element={<ThunderboltsKarpagamcinema/>} />
-            <Route path='thunderbolts/buytickets/Murugancinemaseatlayout' element={<ThunderboltsMurugancinema/>} />
-            <Route path='thunderbolts/buytickets/Kalpanacinemaseatlayout' element={<ThunderboltsKalpanacinema/>} />
+            <Route path='thunderbolts/buytickets/Cosmoscinemasseatlayout' element={<ThunderboltsCosmoscinema/>} />
+            <Route path='thunderbolts/buytickets/Karpagamcinemasseatlayout' element={<ThunderboltsKarpagamcinema/>} />
+            <Route path='thunderbolts/buytickets/Murugancinemasseatlayout' element={<ThunderboltsMurugancinema/>} />
+            <Route path='thunderbolts/buytickets/srisakthikalpanacinemasseatlayout' element={<ThunderboltsKalpanacinema/>} />
 
-            <Route path='thodarum/buytickets/Cosmoscinemaseatlayout' element={<ThodarumCosmoscinema/>} />
-            <Route path='thodarum/buytickets/Karpagamcinemaseatlayout' element={<ThodarumKarpagamcinema/>} />
-            <Route path='thodarum/buytickets/Murugancinemaseatlayout' element={<ThodarumMurugancinema/>} />
-            <Route path='thodarum/buytickets/Kalpanacinemaseatlayout' element={<ThodarumKalpanacinema/>} />
+            <Route path='thodarum/buytickets/Cosmoscinemasseatlayout' element={<ThodarumCosmoscinema/>} />
+            <Route path='thodarum/buytickets/Karpagamcinemasseatlayout' element={<ThodarumKarpagamcinema/>} />
+            <Route path='thodarum/buytickets/Murugancinemasseatlayout' element={<ThodarumMurugancinema/>} />
+            <Route path='thodarum/buytickets/srisakthikalpanacinemasseatlayout' element={<ThodarumKalpanacinema/>} />
 
             <Route path="/booking-summary" element={<BookingSummaryPage />} />
 
               {/* Admin Theater Blocking section */}
 
-              <Route path="/theater-seats/:theater/:screen" element={<CosmosA/>} />
+              <Route path="/theater-seats" element={<CosmosA/>} />
+              {/* <Route path="/theater-seats/:theater/:screen" element={<CosmosA/>} /> */}
 
 
 

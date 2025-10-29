@@ -92,3 +92,9 @@ input.form-control {
   border-radius: 30px !important ;
   border: 1px solid red !important;
 }
+
+.form {
+  position: relative;
+  left: 15rem;
+  top: 3rem;
+}
