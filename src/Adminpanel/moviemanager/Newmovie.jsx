@@ -4066,6 +4066,7 @@ const MovieManager = () => {
   const genreOptions = [
     { value: 'Action', label: 'Action' },
     { value: 'Thriller', label: 'Thriller' },
+    { value: 'Family', label: 'Family' },
     { value: 'Comedy', label: 'Comedy' },
     { value: 'Drama', label: 'Drama' },
     { value: 'Horror', label: 'Horror' },
