@@ -244,16 +244,12 @@ import { FaChevronLeft } from "react-icons/fa6";
 import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 
-const SEAT_PRICE = {
-  platinum: 150,
-  gold: 130,
-  silver: 100,
-};
+const SEAT_PRICE = { platinum: 150, gold: 130, silver: 100 };
 
 const ROWS = {
-  platinum: ['A','B','C','D','E','F','G'],
-  gold: ['H','I','J','K','L','M','N'],
-  silver: ['O','P']
+  platinum: ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
+  gold: ['H', 'I', 'J', 'K', 'L', 'M', 'N'],
+  silver: ['O', 'P'],
 };
 
 const Seatlayout = () => {
@@ -262,15 +258,20 @@ const Seatlayout = () => {
 
   const [selectedSeats, setSelectedSeats] = useState([]);
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const [bookedSeats, setBookedSeats] = useState([]);    // user-booked
-  const [blockedSeats, setBlockedSeats] = useState([]);  // admin-blocked
+  const [bookedSeats, setBookedSeats] = useState([]);   // user-booked
+  const [blockedSeats, setBlockedSeats] = useState([]); // admin-blocked
   const [selectedTime, setSelectedTime] = useState("");
   const [theaterName, setTheaterName] = useState("");
   const [movieName, setMovieName] = useState("");
   const [screen, setSelectedScreen] = useState("");
 
-  // Fetch booked and blocked seats
+
+   const formatDate = (date) => date.toISOString().split('T')[0]; // ✅ Standard format
+
+
+
   useEffect(() => {
+    // Retrieve navigation state
     if (location.state) {
       setTheaterName(location.state.theater || "");
       setSelectedTime(location.state.time || "");
@@ -283,24 +284,26 @@ const Seatlayout = () => {
 
     const fetchSeats = async () => {
       try {
-        const showDate = selectedDate.toLocaleDateString();
+        // const showDate = selectedDate.toLocaleDateString();
+        const showDate = formatDate(selectedDate);
 
-        // User-booked seats
+        // ✅ Fetch user-booked seats
         const bookingRes = await axios.get("http://localhost:5000/api/bookings", {
-          params: { theater: theaterName, moviename: movieName, screen, time: selectedTime, date: showDate },
+          params: { theater: theaterName, movieName, screen, time: selectedTime, date: showDate },
         });
         const userBooked = bookingRes.data.flatMap(b => b.seats);
 
-        // Admin-blocked seats
+        // ✅ Fetch admin-blocked seats
         const blockedRes = await axios.get("http://localhost:5000/api/admin/blocked-seats", {
           params: { theater: theaterName, movieName, screen, time: selectedTime, date: showDate },
         });
         const adminBlocked = blockedRes.data;
 
+        // Merge
         setBookedSeats(userBooked);
         setBlockedSeats(adminBlocked);
       } catch (err) {
-        console.error("Error fetching seats:", err);
+        console.error("❌ Error fetching seats:", err);
       }
     };
 
@@ -325,12 +328,14 @@ const Seatlayout = () => {
       theater: theaterName,
       selectedSeats,
       totalPrice,
-      date: selectedDate.toLocaleDateString(),
+      // date: selectedDate.toLocaleDateString(),
+      date: formatDate(selectedDate),
       time: selectedTime,
       screen,
     };
 
     const isLoggedIn = localStorage.getItem("isLoggedIn");
+
     if (!isLoggedIn) {
       navigate('/login', { state: { redirectTo: '/booking-summary', bookingData: summaryData } });
     } else {

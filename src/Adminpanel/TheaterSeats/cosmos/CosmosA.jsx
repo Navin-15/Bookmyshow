@@ -2663,6 +2663,7 @@
 
 //===============================================================================================
 // Final code block and un-block functions are working in this updated code. 
+// last updated code [changed the (date format) and (movieName) params] for proper blockand un-blocking seats with the correct moviename's
 
 import React, { useEffect, useState } from "react";
 import axios from "axios";
@@ -2717,7 +2718,7 @@ const AdminSeatlayout = () => {
     if (!theater || !movieName || !screen || !time || !date) return;
     try {
       const res = await axios.get("http://localhost:5000/api/admin/blocked-seats", {
-        params: { theater, movieName, screen, time, date: date.toLocaleDateString() },
+        params: { theater, movieName, screen, time, date: date.toISOString().split('T')[0] },
       });
       setBlockedSeats(res.data);
     } catch (err) {
@@ -2737,7 +2738,8 @@ const AdminSeatlayout = () => {
         movieName,
         screen,
         time,
-        date: date.toLocaleDateString(),
+        // date: date.toLocaleDateString(),
+        date: date.toISOString().split('T')[0], // ✅ YYYY-MM-DD
         seats: selectedSeats,
       });
       alert("✅ Seats blocked successfully!");
@@ -2760,7 +2762,8 @@ const AdminSeatlayout = () => {
         movieName,
         screen,
         time,
-        date: date.toLocaleDateString(),
+        // date: date.toLocaleDateString(),
+        date: date.toISOString().split('T')[0], // ✅ YYYY-MM-DD
         seats: unblockSeats,
       });
       alert("✅ Seats unblocked successfully!");

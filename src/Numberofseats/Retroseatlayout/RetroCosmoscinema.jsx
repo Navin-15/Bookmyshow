@@ -299,6 +299,7 @@
 //  //  //  //  //  //  //  //  //  //  //  //  //  //
 
 // updated blocking and non-blocking functional code  apply this functions to all other seatlayout components wisely 
+
 // Finalized code of Displaying blocked and unblocked seats
 
 import React, { useState, useEffect } from 'react';
@@ -308,11 +309,7 @@ import { FaChevronLeft } from "react-icons/fa6";
 import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 
-const SEAT_PRICE = {
-  platinum: 150,
-  gold: 130,
-  silver: 100,
-};
+const SEAT_PRICE = { platinum: 150, gold: 130, silver: 100 };
 
 const ROWS = {
   platinum: ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
@@ -333,6 +330,11 @@ const Seatlayout = () => {
   const [movieName, setMovieName] = useState("");
   const [screen, setSelectedScreen] = useState("");
 
+
+   const formatDate = (date) => date.toISOString().split('T')[0]; // ✅ Standard format
+
+
+
   useEffect(() => {
     // Retrieve navigation state
     if (location.state) {
@@ -347,11 +349,12 @@ const Seatlayout = () => {
 
     const fetchSeats = async () => {
       try {
-        const showDate = selectedDate.toLocaleDateString();
+        // const showDate = selectedDate.toLocaleDateString();
+        const showDate = formatDate(selectedDate);
 
         // ✅ Fetch user-booked seats
         const bookingRes = await axios.get("http://localhost:5000/api/bookings", {
-          params: { theater: theaterName, moviename: movieName, screen, time: selectedTime, date: showDate },
+          params: { theater: theaterName, movieName, screen, time: selectedTime, date: showDate },
         });
         const userBooked = bookingRes.data.flatMap(b => b.seats);
 
@@ -390,7 +393,8 @@ const Seatlayout = () => {
       theater: theaterName,
       selectedSeats,
       totalPrice,
-      date: selectedDate.toLocaleDateString(),
+      // date: selectedDate.toLocaleDateString(),
+      date: formatDate(selectedDate),
       time: selectedTime,
       screen,
     };

@@ -244,16 +244,12 @@ import { FaChevronLeft } from "react-icons/fa6";
 import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 
-const SEAT_PRICE = {
-  platinum: 150,
-  gold: 130,
-  silver: 100,
-};
+const SEAT_PRICE = { platinum: 150, gold: 130, silver: 100 };
 
 const ROWS = {
-  platinum: ['A','B','C','D','E','F','G'],
-  gold: ['H','I','J','K','L', 'M', 'N'],
-  silver: [ 'O','P']
+  platinum: ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
+  gold: ['H', 'I', 'J', 'K', 'L', 'M', 'N'],
+  silver: ['O', 'P'],
 };
 
 const Seatlayout = () => {
@@ -262,50 +258,62 @@ const Seatlayout = () => {
 
   const [selectedSeats, setSelectedSeats] = useState([]);
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const [bookedSeats, setBookedSeats] = useState([]);    // user-booked seats
-  const [blockedSeats, setBlockedSeats] = useState([]);  // admin-blocked seats
+  const [bookedSeats, setBookedSeats] = useState([]);   // user-booked
+  const [blockedSeats, setBlockedSeats] = useState([]); // admin-blocked
   const [selectedTime, setSelectedTime] = useState("");
   const [theaterName, setTheaterName] = useState("");
   const [movieName, setMovieName] = useState("");
   const [screen, setSelectedScreen] = useState("");
 
+
+   const formatDate = (date) => date.toISOString().split('T')[0]; // ✅ Standard format
+
+
+
   useEffect(() => {
+    // Retrieve navigation state
     if (location.state) {
       setTheaterName(location.state.theater || "");
       setSelectedTime(location.state.time || "");
       setMovieName(location.state.movieName || "");
       setSelectedScreen(location.state.screen || "");
-      if (location.state.selectedSeats) setSelectedSeats(location.state.selectedSeats);
+      if (location.state.selectedSeats) {
+        setSelectedSeats(location.state.selectedSeats);
+      }
     }
 
     const fetchSeats = async () => {
       try {
-        const showDate = selectedDate.toLocaleDateString();
+        // const showDate = selectedDate.toLocaleDateString();
+        const showDate = formatDate(selectedDate);
 
-        // Fetch user-booked seats
+        // ✅ Fetch user-booked seats
         const bookingRes = await axios.get("http://localhost:5000/api/bookings", {
-          params: { theater: theaterName, moviename: movieName, screen, time: selectedTime, date: showDate },
+          params: { theater: theaterName, movieName, screen, time: selectedTime, date: showDate },
         });
         const userBooked = bookingRes.data.flatMap(b => b.seats);
 
-        // Fetch admin-blocked seats
+        // ✅ Fetch admin-blocked seats
         const blockedRes = await axios.get("http://localhost:5000/api/admin/blocked-seats", {
           params: { theater: theaterName, movieName, screen, time: selectedTime, date: showDate },
         });
         const adminBlocked = blockedRes.data;
 
+        // Merge
         setBookedSeats(userBooked);
         setBlockedSeats(adminBlocked);
-      } catch(err) {
+      } catch (err) {
         console.error("❌ Error fetching seats:", err);
       }
     };
 
-    if (theaterName && movieName && selectedTime && screen) fetchSeats();
+    if (theaterName && movieName && selectedTime && screen) {
+      fetchSeats();
+    }
   }, [theaterName, movieName, selectedDate, selectedTime, screen, location.state]);
 
   const handlePreviousPage = () => {
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
     navigate(-1);
   };
 
@@ -320,7 +328,8 @@ const Seatlayout = () => {
       theater: theaterName,
       selectedSeats,
       totalPrice,
-      date: selectedDate.toLocaleDateString(),
+      // date: selectedDate.toLocaleDateString(),
+      date: formatDate(selectedDate),
       time: selectedTime,
       screen,
     };
@@ -330,7 +339,6 @@ const Seatlayout = () => {
     if (!isLoggedIn) {
       navigate('/login', { state: { redirectTo: '/booking-summary', bookingData: summaryData } });
     } else {
-      // Immediately mark selected seats as booked
       setBookedSeats(prev => [...prev, ...selectedSeats.map(s => s.id)]);
       setSelectedSeats([]);
       navigate('/booking-summary', { state: summaryData });
@@ -372,13 +380,13 @@ const Seatlayout = () => {
             <a href="#" className='text-dark' style={{ textDecoration: "none" }}>{movieName}</a>
             <IoIosClose onClick={handlePreviousPage} className='fs-2' style={{ position: "absolute", right: "3rem", cursor: 'pointer' }} />
             <div className="d-flex mt-2">
-              <span style={{ fontSize: "13px", fontWeight: "700", color: "rgb(88,86,86)" }}>{theaterName}</span>
+              <span style={{ fontSize: "13px", fontWeight: "700", color: "rgb(88, 86, 86)" }}>{theaterName}</span>
               &nbsp;&nbsp;
-              <span style={{ fontSize: "13px", fontWeight: "700", color: "rgb(88,86,86)" }}>{selectedDate.toLocaleDateString()}</span>
+              <span style={{ fontSize: "13px", fontWeight: "700", color: "rgb(88, 86, 86)" }}>{selectedDate.toLocaleDateString()}</span>
               &nbsp;&nbsp;
-              <span style={{ fontSize: "13px", fontWeight: "700", backgroundColor: "rgba(58,130,93,1)", padding:"8px 10px", color:"#fff", borderRadius:"2px" }}>{selectedTime}</span>
+              <span style={{ fontSize: "13px", fontWeight: "700", backgroundColor: "rgba(58, 130, 93, 1)", padding: "8px 10px", position: "relative", bottom: "8px", color: "#fff", borderRadius: "2px" }}>{selectedTime}</span>
               &nbsp;&nbsp;
-              <span style={{ fontSize: "13px", fontWeight: "700", backgroundColor: "rgba(58,130,93,1)", padding:"8px 10px", color:"#fff", borderRadius:"2px" }}>{screen}</span>
+              <span style={{ fontSize: "13px", fontWeight: "700", backgroundColor: "rgba(58, 130, 93, 1)", padding: "8px 10px", position: "relative", bottom: "8px", color: "#fff", borderRadius: "2px" }}>{screen}</span>
             </div>
           </div>
         </div>
@@ -406,7 +414,7 @@ const Seatlayout = () => {
                               <a
                                 href="#"
                                 className={getSeatClass(row, seatNo, category)}
-                                onClick={(e)=>{e.preventDefault(); handleSeatClick(row, seatNo, category);}}
+                                onClick={(e) => { e.preventDefault(); handleSeatClick(row, seatNo, category); }}
                                 style={(bookedSeats.includes(`${row}${seatNo}`) || blockedSeats.includes(`${row}${seatNo}`)) ? { cursor: 'not-allowed' } : {}}
                               >
                                 {seatNo}
@@ -430,23 +438,26 @@ const Seatlayout = () => {
       </div>
 
       {/* Legends */}
-      <div className="profile w-100 d-flex justify-content-center bg-white" style={{ boxShadow: "rgba(0,0,0,0.1) 4px -5px 5px 1px" }}>
+      <div className="profile w-100 d-flex justify-content-center bg-white" style={{ boxShadow: "rgba(0, 0, 0, 0.1) 4px -5px 5px 1px" }}>
         <div className="w-50 d-flex mt-2 justify-content-center">
           <div className="w-25">
-            <div className="seatempty"><span className='seatno availabledouble' style={{ padding:"10px", width:"20px", height:"20px"}}></span></div>Available
+            <div className="seatempty"><span className='seatno availabledouble' style={{ padding: "10px", width: "20px", height: "20px" }}></span></div>
+            Available
           </div>
           <div className="w-25">
-            <div className="seatempty"><span className='seatno selected-seat' style={{ padding:"10px", width:"20px", height:"20px"}}></span></div>Selected
+            <div className="seatempty"><span className='seatno selected-seat' style={{ padding: "10px", width: "20px", height: "20px" }}></span></div>
+            Selected
           </div>
           <div className="w-25">
-            <div className="seatempty"><span className='seatno orange-disabled' style={{ padding:"10px", width:"20px", height:"20px"}}></span></div>Booked/Blocked
+            <div className="seatempty"><span className='seatno orange-disabled' style={{ padding: "10px", width: "20px", height: "20px" }}></span></div>
+            Booked/Blocked
           </div>
         </div>
       </div>
 
       {/* Pay Button */}
       <div className="d-flex justify-content-center paybutton">
-        <button onClick={handlepay} className="pay btn btn-danger w-25 my-3" disabled={selectedSeats.length===0}>
+        <button onClick={handlepay} className="pay btn btn-danger w-25 my-3" disabled={selectedSeats.length === 0}>
           Pay ₹{totalPrice}
         </button>
       </div>
