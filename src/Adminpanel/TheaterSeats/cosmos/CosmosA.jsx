@@ -2693,10 +2693,24 @@ const AdminSeatlayout = () => {
 
   // ✅ Each row also stores which seats are removed
   const [rows, setRows] = useState([
-    { category: "platinum", rowName: "A", seatPattern: [4, 4, 4], removedSeats: [] },
-    { category: "platinum", rowName: "B", seatPattern: [4, 4, 4], removedSeats: [] },
-    { category: "gold", rowName: "H", seatPattern: [5, 5], removedSeats: [] },
-    { category: "silver", rowName: "O", seatPattern: [3, 2, 3], removedSeats: [] },
+    { category: "platinum", rowName: "A", seatPattern: [6, 9, 6], removedSeats: [] },
+    { category: "platinum", rowName: "B", seatPattern: [6, 9, 6], removedSeats: [] },
+    { category: "platinum", rowName: "C", seatPattern: [6, 9, 6], removedSeats: [] },
+    { category: "platinum", rowName: "D", seatPattern: [6, 9, 6], removedSeats: [] },
+    { category: "platinum", rowName: "E", seatPattern: [6, 9, 6], removedSeats: [] },
+    { category: "platinum", rowName: "F", seatPattern: [6, 9, 6], removedSeats: [] },
+    { category: "platinum", rowName: "G", seatPattern: [6, 9, 6], removedSeats: [] },
+    
+    { category: "gold", rowName: "H", seatPattern: [6,9,6], removedSeats: [] },
+    { category: "gold", rowName: "I", seatPattern: [6,9,6], removedSeats: [] },
+    { category: "gold", rowName: "J", seatPattern: [6,9,6], removedSeats: [] },
+    { category: "gold", rowName: "K", seatPattern: [6,9,6], removedSeats: [] },
+    { category: "gold", rowName: "L", seatPattern: [6,9,6], removedSeats: [] },
+    { category: "gold", rowName: "M", seatPattern: [6,9,6], removedSeats: [] },
+    { category: "gold", rowName: "N", seatPattern: [6,9,6], removedSeats: [] },
+
+    { category: "silver", rowName: "O", seatPattern: [6,9,6], removedSeats: [] },
+    { category: "silver", rowName: "P", seatPattern: [6,9,6], removedSeats: [] },
   ]);
 
   const [newCategory, setNewCategory] = useState("platinum");

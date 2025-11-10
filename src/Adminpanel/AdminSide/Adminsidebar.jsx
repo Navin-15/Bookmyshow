@@ -323,7 +323,7 @@ const AdminSidebar = () => {
         )}
 
         {/* Customer */}
-        {user?.permissions?.customer && (
+        {/* {user?.permissions?.customer && (
           <>
             <li style={menuItemStyle} onClick={() => handleMenuToggle("customer")}>
               <FaUser style={iconStyle} />
@@ -333,7 +333,7 @@ const AdminSidebar = () => {
               <li style={submenuItemStyle} onClick={() => navigate("/managecustomer")}>Manage Customer</li>
             )}
           </>
-        )}
+        )} */}
 
         {/* NEW: Theater Seats */}
         {user?.permissions?.theaterseats && (
@@ -346,7 +346,7 @@ const AdminSidebar = () => {
               <>
                 {/* Cosmos Cinemas */}
                 <li style={submenuItemStyle}onClick={() =>  navigate(`/theater-seats`)}>
-                  Cosmos Cinemas {expandedSubMenu === "cosmos" ? <FaChevronDown /> : <FaChevronRight />}
+                  Management {expandedSubMenu === "cosmos" ? <FaChevronDown /> : <FaChevronRight />}
                 </li>
                 {expandedSubMenu === "cosmos" && renderScreens("cosmos-cinemas")}
 

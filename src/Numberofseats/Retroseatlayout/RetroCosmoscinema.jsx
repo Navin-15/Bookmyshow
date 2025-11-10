@@ -299,7 +299,6 @@
 //  //  //  //  //  //  //  //  //  //  //  //  //  //
 
 // updated blocking and non-blocking functional code  apply this functions to all other seatlayout components wisely 
-
 // Finalized code of Displaying blocked and unblocked seats
 
 import React, { useState, useEffect } from 'react';
