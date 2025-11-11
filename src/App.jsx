@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react'
 import './App.css';
 import './cat/Categories.css';
@@ -282,18 +281,8 @@ function App (){
               {/* Admin Theater Blocking section */}
 
               <Route path="/theater-seats" element={<CosmosA/>} />
-              {/* <Route path="/theater-seats/:theater/:screen" element={<CosmosA/>} /> */}
-
-
 
               {/* Admin Theater Blocking section */}
-
-
-
-
-
-
-            
             {/* events */}
 
             <Route path='events/comedyshow' element={<Comedyshowinner />} />

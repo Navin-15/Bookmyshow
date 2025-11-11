@@ -86,7 +86,6 @@
   width: 10rem; 
 }
 
-
 .badge {
   padding: 4px 8px;
   margin: 2px;
@@ -145,7 +144,6 @@
 .export-icon {
   width: 30px;
   height: 30px;
- 
 }
 
 .csv-link {
@@ -279,8 +277,7 @@
   cursor: not-allowed;
 }
 
-/* controlin over flow css */
-
+/* controlling over flow css */
 /* Makes table scrollable horizontally */
 
 .table-responsive {

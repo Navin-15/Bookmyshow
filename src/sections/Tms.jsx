@@ -1,7 +1,3 @@
-
-
-//responsive code
-
 import Thodaruminnerimage from '/thodaruminnerimages/thodaruminnerimage.jpg';
 import Thodarumtrailerimg from '/thodaruminnerimages/thodarumtrailerimage.jpg';
 import { FaCaretRight, FaStar } from "react-icons/fa";

@@ -1,7 +1,3 @@
-
-
-//responsive code
-
 import React from 'react';
 import hit from '/hitinnerimages/hitinnerimage.jpg';
 import hittrailerimg from '/hitinnerimages/hittrailerimage.jpg';

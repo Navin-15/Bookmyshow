@@ -1,5 +1,3 @@
-/* MovieManager.css */
-
 .movie {
   width: 74%;
   border-radius: 8px;
@@ -13,8 +11,6 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
-
-/* Example: Add spacing between cards and responsive overflow */
 .movie-card img {
   object-fit: cover;
   height: 250px;
@@ -61,8 +57,7 @@ input.form-control {
     border: 2px solid #dc3545;
     color: white;
 }
-  
-/* Newmovie.css */
+
 .sideside {
   position: fixed;
   left: 0;
@@ -84,7 +79,6 @@ input.form-control {
 .create {
   background-color: red !important;
 }
-
 
 .clear {
   background-color: transparent !important;

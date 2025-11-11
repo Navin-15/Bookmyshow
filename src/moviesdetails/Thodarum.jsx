@@ -26,9 +26,6 @@ import pattanam from     '/thodaruminnerimages/pattanam.jpg'
 import vishnu from     '/thodaruminnerimages/vishnu.jpg'
 import dixon from     '/thodaruminnerimages/dixon.jpg'
 
-
-
-
 function TouristFamily() {
   return (
     <>

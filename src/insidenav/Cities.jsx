@@ -1,6 +1,3 @@
-
-// responsive code
-
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { IoIosSearch } from 'react-icons/io';
@@ -72,15 +69,3 @@ function Cities({ onCitySelect }) {
 }
 
 export default Cities;
-// optional code 
-// .city-card {
-//   transition: transform 0.2s;
-// }
-// .city-card:hover {
-//   transform: scale(1.05);
-// }
-// .input-group .input-group-text {
-//   background-color: #fff;
-// }
-
-//

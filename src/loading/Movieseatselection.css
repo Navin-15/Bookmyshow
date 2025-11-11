@@ -114,16 +114,6 @@
     max-width: 400px;
 }
 
-
-
-
-/* .pop {
-  padding: 10px 15px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  cursor: pointer;
-} */
-
 .pop:hover {
   background-color: #fc0202;
   color: white;

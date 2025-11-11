@@ -21,13 +21,7 @@ import sean from '/touristfamilyinnerimages/sean.jpg'
 import aravind from '/touristfamilyinnerimages/aravind.jpg'
 import barath from '/touristfamilyinnerimages/barath.jpg'
 
-
-
-
-
 function TouristFamily() {
-
-
 
   return (
     <>

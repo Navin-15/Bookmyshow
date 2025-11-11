@@ -1,22 +1,9 @@
-
-/* .header {
-    position: fixed;
-    top: 0px;
-    left: 16.3%;
-    z-index: 55;
-    width: 83.7%;
-    display: flex;
-    justify-content: space-between;
-    background-color: #c2c4c8
-   } */
-
 .header {
   background-color: #eee;
   position: sticky;
   top: 0;
   z-index: 1000;
 }
-
 
 .username-box {
   border: 2px solid red;

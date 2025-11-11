@@ -281,10 +281,8 @@
     display: flex;  
     justify-content: end;
 }
-/* -------------------------------------------------------------------------------------------------- */
+
 /* Media query */
-
-
  @media (max-width: 767.98px){
 .searchdiv{
         display: none;
@@ -720,7 +718,7 @@
     }
     
  }
- /* ---------------------------------------------------------------------------------------------------------------------------------------- */
+
  /*Innerinput section */
 
 @media (min-width: 1280px){
@@ -772,9 +770,7 @@
  }
  
  .top-entertainmentdiv{
-    margin-top: 20px;
-    
-    
+    margin-top: 20px; 
  }
 
  .entertainment{
@@ -783,7 +779,6 @@
     justify-content: flex-start;
     opacity: 1;
     width: 21.5%;
-    
  }
  .movies{
     font-size: 12px;
@@ -825,7 +820,6 @@
     bottom: 32px;
     margin: 0px 0px;
     display: flex;
-    
     background-color: rgb(255, 255, 255);
  }
  .filter{
@@ -904,7 +898,6 @@
     line-height: 1;
     padding: 6px 0px 3px 0px;
     align-items: center;
-    /* margin: 0px; */
     opacity: 1;
     transition: 0.2s ease-in-out;
  }
@@ -992,7 +985,6 @@
     margin-right: 8%;
  }
 }
-/* ---------------------------------------------------------------------------------------------------------------------------------------------- */
 /* Cities section*/
 /* search input */
 
@@ -1699,9 +1691,7 @@
     .login-main-div{
         position: fixed;
         top: 0px;
-        
         left: 0px;
-        
         width: 100%;
         height: 100%;
         z-index: 500;
@@ -1719,9 +1709,7 @@
         opacity: 1;
     }
     .empty-div{
-        
-        width: 440px;
-        
+        width: 440px; 
     }
     
     .content-div{
@@ -1829,7 +1817,6 @@
     .google-logo-span{
         width:  19px;
         height: 19px;
-        /* margin-bottom: 5px; */
     }
     .google-logo{
         max-width: 100%;

@@ -1,11 +1,12 @@
-
 .carousel-1{
     width: 100%;
     border-radius: 10px;
 }
+
 .carousel-div{
     max-width: 100%;
 }
+
 .car{
     background-color: rgba(211, 209, 209, 0.991);
     overflow-x: hidden;
@@ -14,6 +15,7 @@
 .carousel-control-prev{
     padding: 5px;
 }
+
 .carousel-control-prev-icon{
     margin-left: -151px;
     display: inline-block;
@@ -31,6 +33,7 @@
 .carousel-control-next{
     padding: 5px;
 }
+
 .carousel-control-next-icon{
     margin-left: 155px;
     display: inline-block;
@@ -49,14 +52,11 @@
     display: none;
 }
 
-
 @media (min-width: 425px) and (max-width: 767.98px){
-    .car{
-        
+    .car{ 
         width:100%        
     }
-    .carousel-control-prev-icon{
-    
+.carousel-control-prev-icon{    
     margin-left: -55px;
     display: inline-block;
     width: 1.5rem;
@@ -70,8 +70,8 @@
     padding: 10px 10px;
     border-radius: 5px;
 }
-.carousel-control-next-icon{
 
+.carousel-control-next-icon{
     margin-left: 55px;
     display: inline-block;
     width: 1.5rem;
@@ -88,9 +88,7 @@
 
 }
 
-
 @media (min-width: 768px) and (max-width: 1023.98px){
-
 
 .carousel-1{
     width: 100%;
@@ -98,7 +96,6 @@
 }
 
 .carousel-control-prev-icon{
-    
     margin-left: -55px;
     display: inline-block;
     width: 1.5rem;
@@ -112,8 +109,8 @@
     padding: 10px 10px;
     border-radius: 5px;
 }
-.carousel-control-next-icon{
 
+.carousel-control-next-icon{
     margin-left: 55px;
     display: inline-block;
     width: 1.5rem;
@@ -126,16 +123,15 @@
     width: 20px;
     padding: 10px 10px;
     border-radius: 5px;
-}
-}
+}}
 
 @media (min-width: 1024px) and (max-width: 1439.98px){
 
     .car{
         width: 100%;
     }
+
 .carousel-control-prev-icon{
-    
     margin-left: -55px;
     display: inline-block;
     width: 1.5rem;
@@ -150,7 +146,6 @@
     border-radius: 5px;
 }
 .carousel-control-next-icon{
-
     margin-left: 55px;
     display: inline-block;
     width: 1.5rem;
@@ -163,6 +158,4 @@
     width: 20px;
     padding: 10px 10px;
     border-radius: 5px;
-}
-
-}
+}}

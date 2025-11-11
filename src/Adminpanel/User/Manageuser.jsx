@@ -1,7 +1,3 @@
-
-
-//without S.NO code 
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate, useLocation } from 'react-router-dom';
@@ -98,26 +94,7 @@ const ManageUser = () => {
     }
   };
 
-  //old PDF export function
-
-  // const handleExportPDF = () => {
-  //   const doc = new jsPDF();
-  //   doc.text('User Details', 14, 10);
-  //   autoTable(doc, {
-  //     startY: 20,
-  //     head: [['Name', 'Email', 'Contact', 'Designation', 'Permissions']],
-  //     body: exportData.map(user => [
-  //       user.name,
-  //       user.email,
-  //       user.contact,
-  //       user.designation || 'N/A',
-  //       Object.keys(user.permissions).filter(p => user.permissions[p]).join(', ')
-  //     ])
-  //   });
-  //   doc.save('users.pdf');
-  // };
-
-  //new PDF export function
+  // PDF export function
 
   const handleExportPDF = () => {
   if (selectedUsers.length === 0) {
@@ -143,25 +120,7 @@ const ManageUser = () => {
   doc.save('selected_users.pdf');
 };
 
-
-  //old EXCEL export function
-
-  // const handleExportExcel = () => {
-  //   const ws = XLSX.utils.json_to_sheet(
-  //     exportData.map(user => ({
-  //       Name: user.name,
-  //       Email: user.email,
-  //       Contact: user.contact,
-  //       Designation: user.designation || '',
-  //       Permissions: Object.keys(user.permissions).filter(p => user.permissions[p]).join(', ')
-  //     }))
-  //   );
-  //   const wb = XLSX.utils.book_new();
-  //   XLSX.utils.book_append_sheet(wb, ws, 'Users');
-  //   XLSX.writeFile(wb, 'users.xlsx');
-  // };
-
-  //new Excel export function   
+  // Excel export function   
 
   const handleExportExcel = () => {
   if (selectedUsers.length === 0) {
@@ -282,26 +241,9 @@ const ManageUser = () => {
                   <img src="https://cdn.iconscout.com/icon/free/png-256/free-microsoft-excel-icon-svg-png-download-1756310.png" alt="Excel" className="export-icon" />
                 </button>
 
-              {/* old CSV export function */}
+              {/* CSV export function */}
 
-                {/* <CSVLink
-                  data={exportData.map(user => ({
-                    Name: user.name,
-                    Email: user.email,
-                    Contact: user.contact,
-                    Designation: user.designation || '',
-                    Permissions: Object.keys(user.permissions).filter(p => user.permissions[p]).join(', ')
-                  }))}
-                  filename="users.csv"
-                >
-                  <button className="export-btn">
-                    <img src="https://cdn-icons-png.flaticon.com/512/8242/8242984.png" alt="CSV" className="export-icon" />
-                  </button>
-                </CSVLink> */}
-
-                {/* new CSV export function */}
-
-              {selectedUsers.length > 0 ? (
+{selectedUsers.length > 0 ? (
   <CSVLink 
     data={exportData.map(user => ({
       Name: user.name,
@@ -321,9 +263,6 @@ const ManageUser = () => {
     <img src="https://cdn-icons-png.flaticon.com/512/8242/8242984.png" alt="CSV" className="export-icon" />
   </button>
 )}
-
-
-
                 <button className="export-btn" onClick={handleExportPDF}>
                   <img src='https://cdn-icons-png.freepik.com/512/14180/14180779.png' alt="PDF" className="export-icon" />
                 </button>

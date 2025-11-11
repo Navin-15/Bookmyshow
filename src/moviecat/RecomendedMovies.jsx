@@ -1,7 +1,3 @@
-
-
-//responsive code
-
 import Retro from '/images/retro.jpg';
 import Family from '/images/family.jpg';
 import Hit from '/images/hit.jpg';

@@ -1,7 +1,3 @@
-
-
-//responsive code
-
 import React from 'react';
 import { FaCaretRight } from "react-icons/fa";
 import { FaStar } from "react-icons/fa6";

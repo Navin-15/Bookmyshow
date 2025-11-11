@@ -1,4 +1,3 @@
-
 // import React from 'react'
 import hit from '/hitinnerimages/hitinnerimage.jpg'
 import hittrailerimg from '/hitinnerimages/hittrailerimage.jpg'
@@ -18,20 +17,12 @@ import mickey from     '/hitinnerimages/mickey.jpg'
 import sanu from '/hitinnerimages/sanu.jpg'
 import srinagu from '/hitinnerimages/sri-nagendra.jpg'
 
-
-
-
-
-
 function Hit() {
   return (
     <>
 
-    
-
-        <div className=" overflow-hidden">
+    <div className=" overflow-hidden">
             
-
         <div className="A bg-dark ">
 
             <section className='B'> 

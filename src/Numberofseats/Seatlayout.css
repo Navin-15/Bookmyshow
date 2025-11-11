@@ -21,11 +21,9 @@
     color: white;
 }
 .seeat{
-    
     margin: 10px auto ;
     padding: 30px 30px;
     background-color: rgb(248, 244, 244) ;
-  
 }
 .block{
     padding-bottom: 20px;
@@ -134,7 +132,6 @@
     text-align: center;
 }
 .total-amount{
-    
     width: 23%;
     padding: 10px;
     border-radius: 5px;
@@ -142,7 +139,6 @@
     background-color: rgb(241, 28, 28);
     align-items: center;
     font-size: 16px;
-
 }
 
 .selected-seat {
@@ -191,8 +187,6 @@
   pointer-events: auto !important;
   cursor: pointer;
 }
-
-
 .seat-gap {
   width: 30px;
   height: 25px;
@@ -200,16 +194,3 @@
   margin: 0 4px;
   background: transparent;
 }
-
-
-/* @media (min-width: 320px) and (max-width: 767.98px){
-.navbar-toggler{
-        
-    }
-} */
-
-
-
-
-
-

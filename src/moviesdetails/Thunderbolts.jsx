@@ -21,10 +21,6 @@ import kevin from '/thunderboltsinnerimages/kevin.jpg'
 import eric from  '/thunderboltsinnerimages/eric.jpg'
 import davidj from    '/thunderboltsinnerimages/davidj.jpg'
 
-
-
-
-
 function Thunderbolts() {
   return (
     <>
@@ -129,8 +125,6 @@ function Thunderbolts() {
                 </div>
 
             </section>
-
-           
 
             <div className="details-of-movie-div ">
                 <div className="inner-details-of-movie-div">
@@ -362,8 +356,7 @@ function Thunderbolts() {
                                             <h5 className='actor-name'>David j. Grant</h5>
                                             <h5 className='actor-profession'>Co-Producer</h5>
                                         </a>
-
-                                
+                             
                                         </div>
 
                                     </div>

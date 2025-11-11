@@ -86,7 +86,6 @@
 
 
 .dev-two{
-    /* border: 1px solid white; */
     position: absolute;
     top: 23%;
     left: 29%;
@@ -148,7 +147,7 @@
     font-weight: 600;
     line-height: 24px;
 }
-/* movie-about-div */
+
 .movie-about-div{
     margin-top: 16px;
 }
@@ -184,7 +183,7 @@
 .comma{
     padding: 0px 4px 0px 0px;
 }
-/* duration */
+
 .duration:last-child{
     margin-top: 16px;
 }
@@ -221,7 +220,7 @@
     line-height: 24px;
     letter-spacing: 0.2px;
 }
-/* book-tickets-div */
+
 .book-tickets-div{
     margin-top: 32px;
 }
@@ -268,7 +267,7 @@
     font-size: 15px;
     color: rgb(255, 255, 255);
 }
-/* dev-three */
+
 .dev-three{
     position: absolute;
     top: 30px;
@@ -305,8 +304,6 @@
     letter-spacing: 0.2px;
     color: rgb(255, 255, 255);
 }
-
-/* invisible-section */
 
 .inssivible-section{
     justify-content: space-between;
@@ -376,7 +373,7 @@
     flex-grow: 1;
     box-shadow: none;
 }
-/* details-of-movie-div */
+
 .details-of-movie-div{
     position: relative;
     display: flex;
@@ -421,11 +418,9 @@
     padding-top: 10px;
 }
 .line{
-    
     margin-left: 65px;
 }
 
-/* component-2-parent */
 .component-2-parent{
     position: relative;
     border-top: 1px solid rgb(229, 229, 229);

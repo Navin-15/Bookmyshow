@@ -1,6 +1,3 @@
-// new code
-
-// BookingSummaryPage.jsx
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -23,7 +20,6 @@ function BookingSummaryPage() {
     screen,
   };
 
-  
   try {
     const response = await axios.post('http://localhost:5000/api/bookings', bookingData);
     if (response.status === 200 || response.status === 201) {
@@ -35,10 +31,6 @@ function BookingSummaryPage() {
     console.error("❌ Error saving booking:", error);
   }
 };
-
-
-   
-
     if (!location.state) {
         return (
             <div>

@@ -1,8 +1,3 @@
-
-
-//responsive code
-
-
 import React from 'react';
 import ret from '/retroinnerimages/retro-innerimage.jpg';
 import retrotrailerimg from '/retroinnerimages/retro-trailerimg.jpg';
@@ -57,9 +52,7 @@ function Rms() {
         <Categories />
 
         <div className="position-relative">
-          <img src={ret} alt="poster" className="img-fluid w-100 mx-auto mt-3 px-5" style={{ }} />
-
-         
+          <img src={ret} alt="poster" className="img-fluid w-100 mx-auto mt-3 px-5" style={{ }} /> 
 
           {/* Share Button */}
           <div className="position-absolute top-0 end-0 m-3 d-flex align-items-center">

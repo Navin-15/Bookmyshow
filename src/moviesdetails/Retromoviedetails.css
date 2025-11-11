@@ -12,15 +12,12 @@
     
 }
 .B{
-    
     position: relative;
-    
     padding: 0px;
     height: 470px;
     background-image: url('/Flipkart/innerimages/retro-innerimage.jpg'), linear-gradient(90deg, #1A1A1A 24.97%, #1A1A1A 38.3%, rgba(26, 26, 26, 0.0409746) 97.47%, #1A1A1A 100%)
     
 }
-
 
 .B-img {
   height: auto;
@@ -33,7 +30,6 @@
     left: 55px;
     width: 21%;
     height: 90%;
-    
     cursor: pointer;
      
 }
@@ -83,10 +79,7 @@
     background-color: black;
 }
 
-
-
 .dev-two{
-
     position: absolute;
     top: 23%;
     left: 29%;
@@ -133,7 +126,6 @@
     font-size: 30px;
     color: aliceblue;
 }
-
 
 .butt {
   background-color: transparent;
@@ -205,7 +197,6 @@
   color: #888;
 }
 
-
 .journer-comma{
     padding: 0px 4px 0px 0px;
     font-size: 16px;
@@ -224,7 +215,6 @@
     height: 48px;
     width: 122px;
     background-color: rgba(94, 90, 90, 0.8); 
-   
     opacity: 0.8;
     padding: 0px 16px;
     cursor: pointer;
@@ -250,9 +240,6 @@
     letter-spacing: 0.2px;
     color: rgb(255, 255, 255);
 }
-
-
-
 
 .details-of-movie-div h4 {
   margin-bottom: 12px;
@@ -303,7 +290,6 @@
     margin-left: 65px;
 }
 
-
 .component-2-parent{
     position: relative;
     border-top: 1px solid rgb(229, 229, 229);
@@ -350,13 +336,11 @@
     cursor: pointer;
     margin-left: 30px;
 }
-.small-image-div{
-    
+.small-image-div{ 
     max-height: 120px;
     min-height: 120px;
     max-width: 120px;
     min-width: 120px;
-   
     position: relative;
     z-index: 1;
 }
@@ -374,11 +358,8 @@
 .pooja{
     border-radius: 60px;
     width: 120px;
-    height: 120px;
-
-    
-    transition: 0.5s;
-    
+    height: 120px; 
+    transition: 0.5s; 
     object-fit: cover;
 }
 .actor-name{
@@ -431,17 +412,14 @@
   }
 }
 
-
 @media (min-width: 425px) and (max-width: 767.98px){
     
     .catdiv{
         width: 114%;
         position: relative;
-        left: -20px;
-        
+        left: -20px;  
     }
     .moviediv{
-        
         position: relative;
         left: -30px;
         padding: 10px 0px;
@@ -557,6 +535,3 @@
     }
     
 } 
-
-/* responsive code */
-

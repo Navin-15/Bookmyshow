@@ -1,4 +1,3 @@
-
 .theater {
   width: 74%;
   border-radius: 8px;
@@ -24,7 +23,6 @@
   gap: 15px;
 }
 
-
 .form-actions button {
     border-radius: 30px;
     border: 2px solid #dc3545;
@@ -45,8 +43,6 @@ input.form-control {
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
-
-/* new component code css */
 
 .newtheaterformparent {
     background: #fff;
@@ -90,7 +86,6 @@ form {
   padding: 0px;
 }
 
-
 /* Style select input with custom dropdown icon */
 .select-with-icon {
   appearance: none; /* Remove default arrow in modern browsers */
@@ -102,13 +97,6 @@ form {
   background-size: 18px;
   padding-right: 35px; /* Add padding so text doesn't overlap icon */
 }
-
-
-
-
-
-
-
 
 .react-select__multi-value {
   background-color: #e0e0e0;

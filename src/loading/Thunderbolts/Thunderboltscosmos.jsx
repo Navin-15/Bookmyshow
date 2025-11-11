@@ -8,7 +8,6 @@ import flatcar from '../seatimages/flatcar.jpg'
 import van from '../seatimages/van.jpg' 
 import { useNavigate } from 'react-router-dom';
 
-
 function Thunderboltscosmos() {
 
   const navigate = useNavigate();

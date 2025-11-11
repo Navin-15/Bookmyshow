@@ -53,11 +53,11 @@ function Comedyshowinner() {
 
             <div className="container d-flex justify-content-around">
 
-{/* Filter section ------------------------------------------------------------------------------------------------------- */}  
+
                 <div className="filter-div w-25 mt-5">
 
                     <div className=" p-2 my-2 fs-4 fw-bolder">Filters</div>
-{/* Accordion Section ------------------------------------------------------------------------------------------------------- */}
+
 <section className="accordion accordion-flush" id="accordionFlushExample">
 
   <div className="accordion-item" style={{width:"115%"}}>
@@ -91,7 +91,7 @@ function Comedyshowinner() {
         </div>
     </div>
   </div>
-  {/* -------------------------------------------------------------------------------------------------------------------------------- */}
+ 
   <div className="accordion-item mt-2" style={{width:"115%"}}>
     <h2 className="accordion-header">
       <div className="d-flex justify-content-between align-items-center text-center">
@@ -123,7 +123,6 @@ function Comedyshowinner() {
     </div>
 
   </div>
-  {/* -------------------------------------------------------------------------------------------------------------------------------- */}
 
   <div className="accordion-item mt-2" style={{width:"115%"}}>
     <h2 className="accordion-header">
@@ -150,7 +149,6 @@ function Comedyshowinner() {
     </div>
   </div>
   </div>
-  {/* -------------------------------------------------------------------------------------------------------------------------------- */}
 
   <div className="accordion-item mt-2" style={{width:"115%"}}>
     <h2 className="accordion-header">
@@ -179,7 +177,6 @@ function Comedyshowinner() {
         </div>
     </div>
   </div>
-  {/* -------------------------------------------------------------------------------------------------------------------------------- */}
 
   <div className="accordion-item mt-2 mb-2" style={{width:"115%"}}>
     <h2 className="accordion-header">
@@ -208,14 +205,12 @@ function Comedyshowinner() {
       {/* </div> */}
       
     </div>
-  </div>
-{/*------------------------------------------------------------------------------------------------------- */}  
+  </div>  
 
 </section>
-{/* Accordion Section ------------------------------------------------------------------------------------------------------- */}  
+
                 </div>
-{/* Filter section ------------------------------------------------------------------------------------------------------- */}  
-{/* Comedy show section ------------------------------------------------------------------------------------------------------- */} 
+
             <div className="comedyshow-div w-75 ms-5 mt-5 px-3 ">
 
                 <div className=" p-2 my-2 fs-4 fw-bolder">Comedy Shows</div>
@@ -283,7 +278,7 @@ function Comedyshowinner() {
                   {/* </div> */}
                  
                 </div>
-{/* second row -----------------------------------------------------------------------------------------------------------------------  */}
+
                 <div className=" d-flex my-2 py-2 gap-1">
                     <div className=" " onClick={handlekisiko} style={{width:"13rem", borderRadius:"10px",cursor:"pointer"}}>
                         <div className="mx-1 my-1">
@@ -331,7 +326,7 @@ function Comedyshowinner() {
                     </div>
                  
                 </div>
-{/* Third row -----------------------------------------------------------------------------------------------------------------------  */}
+
                 {/* <div className=" d-flex my-2 py-2 gap-1">
                     <div className=" " style={{width:"13rem", borderRadius:"10px"}}>
                         <div className="mx-1 my-1">

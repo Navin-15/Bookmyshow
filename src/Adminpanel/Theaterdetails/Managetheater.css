@@ -59,12 +59,6 @@ background-color: red;
   white-space: nowrap;
 }
 
-
-/* .screen{
-  width: 4.5rem;
-} */
-
-
 .screen-badges-container {
   display: flex;
   flex-wrap: wrap;
